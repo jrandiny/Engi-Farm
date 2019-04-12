@@ -7,13 +7,13 @@ public class Coop extends Land{
 
     public String render(){
         if(haveGrass()){
-            return "*"; //TODO
+            return "*";
         }else{
             return "o";
         }
     }
 
-    public short getFgColor(){
-        return 1;//belum tahu
-    }
+    // public short getFgColor(){
+    //     return 1;//belum tahu
+    // }
 }

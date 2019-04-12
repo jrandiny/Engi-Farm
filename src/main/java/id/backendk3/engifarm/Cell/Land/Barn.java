@@ -13,7 +13,7 @@ public class Barn extends Land{
         }
     }
 
-    public short getFgColor(){
-        return 1;//belum tahu
-    }
+    // public short getFgColor(){
+    //     return 1;//belum tahu
+    // }
 }
