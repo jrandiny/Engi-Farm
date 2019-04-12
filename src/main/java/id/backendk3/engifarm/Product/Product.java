@@ -4,20 +4,20 @@ public abstract class Product{
 
     public enum ProductType {BeefRoladeType,EggBenedictType,MeatzaType,ChickenEggType,CowMeatType,CowMilkType,DuckEggType,GoatMeatType,GoatMilkType,HorseMeatType,RabbitMeatType};
 
-    protected final int harga;
-    protected final ProductType type;
+    protected final int HARGA;
+    protected final ProductType TYPE;
 
     protected Product(ProductType _type, int _harga){
-        harga = _harga;
-        type = _type;
+        HARGA = _harga;
+        TYPE = _type;
     }
 
     public int getHarga(){
-        return harga;
+        return HARGA;
     }
 
     public ProductType getType(){
-        return type;
+        return TYPE;
     }
 
     @Override

@@ -7,27 +7,31 @@ import id.backendk3.engifarm.Cell.Land.*;
 import id.backendk3.engifarm.Farm;
 
 public abstract class FarmAnimal{
-    protected final int timeToHungry;
-    protected final int timeToDeath=5;
+    protected final int TIME_TO_HUNGRY;
+    protected final int TIME_TO_DEATH=10;
     protected int posX;
     protected int posY;
     protected boolean eatStatus;
     protected boolean deathStatus;
     protected Cell.CellType habitat;
     protected boolean haveProduct;
+    protected void setHaveProduct(boolean flag){
+        this.haveProduct = flag;
+    }
 
     public FarmAnimal(int x,int y,int time, Cell.CellType _type){
         posX=x;
         posY=y;
         habitat=_type;
-        timeToHungry=time;
+        TIME_TO_HUNGRY=time;
+        setDeathStatus(false);
     }
     public void moveRandom(Cell[] surr){
         boolean found = false;
         Farm.MoveType way = null;
         boolean[] movement = {false,false,false,false};
         while(!found && Arrays.asList(movement).contains(false)){
-            way = Farm.MoveType.values()[(int)(Math.random()*3)];
+            way = Farm.MoveType.values()[(int)(Math.random()*4)];
             if(surr[way.getValue()]!=null && !movement[way.getValue()]){
                 if(!surr[way.getValue()].isOccupied() && surr[way.getValue()].getType()==habitat){
                     found=true;
@@ -75,10 +79,20 @@ public abstract class FarmAnimal{
     
     public void setEatStatus(boolean status){
         eatStatus=status;
+        // if(eatStatus){
+        //     setAndActivate(TIME_TO_HUNGRY);
+        // } else {
+        //     setAndActivate(TIME_TO_DEATH);
+        // }
     }
 
     public void setDeathStatus(boolean status){
         deathStatus=status;
+        // if(deathStatus){
+        //     deactivateTimer();
+        // } else {
+        //     setEatStatus(true);
+        // }
     }
 
     public boolean getEatStatus(){
@@ -88,7 +102,13 @@ public abstract class FarmAnimal{
     public boolean getDeathStatus(){
         return deathStatus;
     }
-    // public void callback();
+
+    // public void callback(){
+    //     if(eatStatus)
+    //         setEatStatus(false);
+    //     else 
+    //         setDeathStatus(true);
+    // }
 
     public int getX(){
         return posX;
@@ -103,5 +123,4 @@ public abstract class FarmAnimal{
     public boolean getHaveProduct(){
         return haveProduct;
     }
-
 }
