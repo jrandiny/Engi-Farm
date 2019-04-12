@@ -7,7 +7,7 @@ public abstract class Land extends Cell{
 
     public Land(int _x, int _y, CellType _type){
         super(_x,_y,_type);
-        grass = false;
+        grass = true;
         occupied = false;
     }
 
