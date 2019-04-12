@@ -5,12 +5,12 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.lang.RuntimeException;
 import id.backendk3.engifarm.Farm;
-import id.backendk3.engifarm.Product.*;
+import id.backendk3.engifarm.Product.Product;
 import id.backendk3.engifarm.Product.SideProduct.*;
-import id.backendk3.engifarm.Cell.*;
-import id.backendk3.engifarm.Cell.Land.*;
+import id.backendk3.engifarm.Cell.Cell;
+import id.backendk3.engifarm.Cell.Land.Land;
 import id.backendk3.engifarm.Cell.Facility.*;
-import id.backendk3.engifarm.FarmAnimal.*;
+import id.backendk3.engifarm.FarmAnimal.FarmAnimal;
 
 public class Player{
     private static class Resep{
@@ -34,17 +34,16 @@ public class Player{
     private int money;
     private int posX;
     private int posY;
+    private Farm.MoveType direction;
 
-    public Player(){
-        water = MAX_WATER;
-        money = posX = posY = itemCount = 0;
-        bag = new HashMap<Product,Integer>();
-    }
-    public Player(int water, int money, int posX,int posY){
+    private Player(){};
+
+    public Player(int water, int money, int posX,int posY, Farm.MoveType direction){
         this.water = water;
         this.money = money;
         this.posX = posX;
         this.posY = posY;
+        this.direction = direction;
         itemCount = 0;
         bag = new HashMap<Product,Integer>();
     }
@@ -76,54 +75,60 @@ public class Player{
     public int getY(){
         return posY;
     }
+    public Farm.MoveType getDirection(){
+        return direction;
+    }
     public void move(Farm.MoveType arah, Cell[] surr){
         boolean move = false;
-        switch (arah)
-        {
-            case Up:
-                if(surr[Farm.MoveType.Up.getValue()]!=null && !surr[Farm.MoveType.Up.getValue()].isOccupied()){
-                    posY--;
-                    move = true;
-                    ((Land) surr[Farm.MoveType.Up.getValue()]).occupy();
-                }
-                break;
-            case Right:
-                if(surr[Farm.MoveType.Right.getValue()]!=null && !surr[Farm.MoveType.Right.getValue()].isOccupied()){
-                    posX++;
-                    move = true;
-                    ((Land)surr[Farm.MoveType.Right.getValue()]).occupy();
-                }
-                break;
-            case Down:
-                if(surr[Farm.MoveType.Down.getValue()]!=null && !surr[Farm.MoveType.Down.getValue()].isOccupied()){
-                    posY++;
-                    move = true;
-                    ((Land)surr[Farm.MoveType.Down.getValue()]).occupy();
-                }
-                break;
-            case Left:
-                if(surr[Farm.MoveType.Left.getValue()]!=null && !surr[Farm.MoveType.Left.getValue()].isOccupied()){
-                    posX--;
-                    move = true;
-                    ((Land)surr[Farm.MoveType.Left.getValue()]).occupy();
-                }
-                break;
-            default:
-                break;
-        }
-        if(!move){
-            throw new RuntimeException("You can't move any further");
+        if (arah==direction){
+            switch (arah)
+            {
+                case Up:
+                    if(surr[Farm.MoveType.Up.getValue()]!=null && !surr[Farm.MoveType.Up.getValue()].isOccupied()){
+                        posY--;
+                        move = true;
+                        ((Land) surr[Farm.MoveType.Up.getValue()]).occupy();
+                    }
+                    break;
+                case Right:
+                    if(surr[Farm.MoveType.Right.getValue()]!=null && !surr[Farm.MoveType.Right.getValue()].isOccupied()){
+                        posX++;
+                        move = true;
+                        ((Land)surr[Farm.MoveType.Right.getValue()]).occupy();
+                    }
+                    break;
+                case Down:
+                    if(surr[Farm.MoveType.Down.getValue()]!=null && !surr[Farm.MoveType.Down.getValue()].isOccupied()){
+                        posY++;
+                        move = true;
+                        ((Land)surr[Farm.MoveType.Down.getValue()]).occupy();
+                    }
+                    break;
+                case Left:
+                    if(surr[Farm.MoveType.Left.getValue()]!=null && !surr[Farm.MoveType.Left.getValue()].isOccupied()){
+                        posX--;
+                        move = true;
+                        ((Land)surr[Farm.MoveType.Left.getValue()]).occupy();
+                    }
+                    break;
+                default:
+                    break;
+            }
+            if(!move){
+                throw new RuntimeException("You can't move any further");
+            } else {
+                ((Land)surr[Farm.MoveType.Center.getValue()]).unoccupy();
+            }
         } else {
-            ((Land)surr[Farm.MoveType.Center.getValue()]).unoccupy();
+            this.direction = arah;
         }
     }
     public String talk(FarmAnimal hewan){
         return hewan.speak();
     }
     public void interact(FarmAnimal hewan){
-        if (hewan.getEatStatus() && hewan.getHabitat()!=Cell.CellType.BarnType){
+        if (hewan.getHaveProduct() && hewan.getHabitat()!=Cell.CellType.BarnType){
             addBag(hewan.getProduct());
-            hewan.setEatStatus(false);
         } else {
             throw new RuntimeException("Can't interact with animal");
         }
