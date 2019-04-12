@@ -7,7 +7,7 @@ import id.backendk3.engifarm.Cell.Cell;
 public class Cow extends FarmAnimal{
     
     public Cow(int _x, int _y, Cell.CellType _type){
-        super(_x,_y,15,_type);
+        super(_x,_y,20,_type);
     }
 
     public String speak(){
@@ -15,15 +15,16 @@ public class Cow extends FarmAnimal{
     }
 
     public Product getProduct(){
+        Product res;
         if(habitat==Cell.CellType.BarnType){
-            Product res = new CowMeat();
-            return res;    
+            res = new CowMeat();
         }else if(habitat==Cell.CellType.GrassLandType){
-            Product res = new CowMilk();
-            return res;    
+            res = new CowMilk();
         }else{
             throw new RuntimeException("Ga mungkin bang");
         }
+        setHaveProduct(false);
+        return res;    
 
 
     }

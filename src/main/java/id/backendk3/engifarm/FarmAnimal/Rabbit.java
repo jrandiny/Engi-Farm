@@ -7,7 +7,7 @@ import id.backendk3.engifarm.Cell.Cell;
 public class Rabbit extends FarmAnimal{
     
     public Rabbit(int _x, int _y){
-        super(_x,_y,15,Cell.CellType.BarnType);
+        super(_x,_y,20,Cell.CellType.BarnType);
     }
 
     public String speak(){
@@ -16,6 +16,7 @@ public class Rabbit extends FarmAnimal{
 
     public Product getProduct(){
         Product res = new RabbitMeat();
+        setHaveProduct(false);
         return res;    
     }
 

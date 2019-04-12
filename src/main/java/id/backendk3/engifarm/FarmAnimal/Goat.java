@@ -7,7 +7,7 @@ import id.backendk3.engifarm.Cell.Cell;
 public class Goat extends FarmAnimal{
     
     public Goat(int _x, int _y,Cell.CellType _type){
-        super(_x,_y,15,_type);
+        super(_x,_y,20,_type);
     }
 
     public String speak(){
@@ -15,15 +15,16 @@ public class Goat extends FarmAnimal{
     }
 
     public Product getProduct(){
+        Product res;
         if(habitat==Cell.CellType.BarnType){
-            Product res=new GoatMeat();
-            return res;
+            res=new GoatMeat();
         }else if(habitat==Cell.CellType.GrassLandType){
-            Product res=new GoatMilk();
-            return res;
+            res=new GoatMilk();
         }else{
             throw new RuntimeException("Error no matching habitat type");
         }    
+        setHaveProduct(false);
+        return res;
     }
 
     public String render(){

@@ -7,7 +7,7 @@ import id.backendk3.engifarm.Cell.Cell;
 public class Duck extends FarmAnimal{
     
     public Duck(int _x, int _y){
-        super(_x,_y,15,Cell.CellType.CoopType);
+        super(_x,_y,20,Cell.CellType.CoopType);
     }
 
     public String speak(){
@@ -16,6 +16,7 @@ public class Duck extends FarmAnimal{
 
     public Product getProduct(){
         Product res = new DuckEgg();
+        setHaveProduct(false);
         return res;    
     }
 
