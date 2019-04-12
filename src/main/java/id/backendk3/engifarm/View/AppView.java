@@ -6,7 +6,7 @@ import com.intellij.uiDesigner.core.GridLayoutManager;
 import javax.swing.*;
 import java.awt.*;
 
-public class appView {
+public class AppView {
     private JTextField CommandInput;
     private JLabel TooltipLabel;
     private JList InventoryList;

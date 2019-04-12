@@ -2,7 +2,6 @@ package id.backendk3.engifarm;
 
 import java.util.Map;
 import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.lang.RuntimeException;
 import id.backendk3.engifarm.Farm;
@@ -77,36 +76,36 @@ public class Player{
     public int getY(){
         return posY;
     }
-    public void move(Farm.MoveType arah, ArrayList<Cell> surr){
+    public void move(Farm.MoveType arah, Cell[] surr){
         boolean move = false;
         switch (arah)
         {
             case Up:
-                if(surr.get(Farm.MoveType.Up.getValue())!=null && !surr.get(Farm.MoveType.Up.getValue()).isOccupied()){
+                if(surr[Farm.MoveType.Up.getValue()]!=null && !surr[Farm.MoveType.Up.getValue()].isOccupied()){
                     posY--;
                     move = true;
-                    ((Land) surr.get(Farm.MoveType.Up.getValue())).occupy();
+                    ((Land) surr[Farm.MoveType.Up.getValue()]).occupy();
                 }
                 break;
             case Right:
-                if(surr.get(Farm.MoveType.Right.getValue())!=null && !surr.get(Farm.MoveType.Right.getValue()).isOccupied()){
+                if(surr[Farm.MoveType.Right.getValue()]!=null && !surr[Farm.MoveType.Right.getValue()].isOccupied()){
                     posX++;
                     move = true;
-                    ((Land)surr.get(Farm.MoveType.Right.getValue())).occupy();
+                    ((Land)surr[Farm.MoveType.Right.getValue()]).occupy();
                 }
                 break;
             case Down:
-                if(surr.get(Farm.MoveType.Down.getValue())!=null && !surr.get(Farm.MoveType.Down.getValue()).isOccupied()){
+                if(surr[Farm.MoveType.Down.getValue()]!=null && !surr[Farm.MoveType.Down.getValue()].isOccupied()){
                     posY++;
                     move = true;
-                    ((Land)surr.get(Farm.MoveType.Down.getValue())).occupy();
+                    ((Land)surr[Farm.MoveType.Down.getValue()]).occupy();
                 }
                 break;
             case Left:
-                if(surr.get(Farm.MoveType.Left.getValue())!=null && !surr.get(Farm.MoveType.Left.getValue()).isOccupied()){
+                if(surr[Farm.MoveType.Left.getValue()]!=null && !surr[Farm.MoveType.Left.getValue()].isOccupied()){
                     posX--;
                     move = true;
-                    ((Land)surr.get(Farm.MoveType.Left.getValue())).occupy();
+                    ((Land)surr[Farm.MoveType.Left.getValue()]).occupy();
                 }
                 break;
             default:
@@ -115,7 +114,7 @@ public class Player{
         if(!move){
             throw new RuntimeException("You can't move any further");
         } else {
-            ((Land)surr.get(Farm.MoveType.Center.getValue())).unoccupy();
+            ((Land)surr[Farm.MoveType.Center.getValue()]).unoccupy();
         }
     }
     public String talk(FarmAnimal hewan){
@@ -138,9 +137,6 @@ public class Player{
     public void interact(Truck truck){
         if(truck.isUsable()){
             if(itemCount>0){
-                // for (std::map<std::shared_ptr<Product>,int>::iterator it = bag.begin();it!=bag.end();it++){
-                //     money+= it->second * (it->first)->getHarga();
-                // }
                 for (Map.Entry<Product,Integer> entry : bag.entrySet()){
                     money += entry.getValue() * (entry.getKey().getHarga());
                 }

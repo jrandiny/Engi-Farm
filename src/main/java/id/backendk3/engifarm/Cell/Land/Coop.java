@@ -1,15 +1,15 @@
 package id.backendk3.engifarm.Cell.Land;
 
-public class Barn extends Land{
-    public Barn(int _x,int _y){
-        super(_x,_y,CellType.BarnType);
+public class Coop extends Land{
+    public Coop(int _x,int _y){
+        super(_x,_y,CellType.CoopType);
     }
 
     public String render(){
         if(haveGrass()){
-            return "@";
+            return "*"; //TODO
         }else{
-            return "x";
+            return "o";
         }
     }
 

@@ -6,7 +6,11 @@ public class GrassLand extends Land{
     }
 
     public String render(){
-        return "B";//belum tahu
+        if(haveGrass()){
+            return "#";
+        }else{
+            return "-";
+        }
     }
 
     public short getFgColor(){

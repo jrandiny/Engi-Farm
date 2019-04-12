@@ -13,7 +13,8 @@ public class Farm{
             return value;
         }
     }
-    public Farm(){
+    public Farm(int width, int height){
 
     }
+    // public void 
 }

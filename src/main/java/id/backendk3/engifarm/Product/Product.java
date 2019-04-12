@@ -20,8 +20,15 @@ public abstract class Product{
         return type;
     }
 
-    public boolean equals(Product P){
-        return (P.getType()==getType());
+    @Override
+    public boolean equals(Object P){
+        if (P == this) {
+            return true;
+        }
+        if (!(P instanceof Product)) {
+            return false;
+        }
+        Product temp = (Product)P;
+        return temp.getType() == this.getType();
     }
-
 }
