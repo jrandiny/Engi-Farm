@@ -8,6 +8,8 @@ public class Well extends Facility{
     }
 
     public String render(){
-        return "W";
+        // black text
+        // white back
+        return "\u001B[30m" + "\u001B[47m" + "W" +"\u001B[0m";
     }
 }

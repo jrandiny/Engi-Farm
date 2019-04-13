@@ -6,11 +6,15 @@ public class Barn extends Land{
     }
 
     public String render(){
+        // Red text
+        String render = "\u001B[31m";
         if(haveGrass()){
-            return "@";
+            render += "@";
         }else{
-            return "x";
+            render += "x";
         }
+        render += "\u001B[0m";
+        return render;
     }
 
     // public short getFgColor(){

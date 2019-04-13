@@ -6,11 +6,15 @@ public class GrassLand extends Land{
     }
 
     public String render(){
+        // Green text
+        String render = "\u001B[32m";
         if(haveGrass()){
-            return "#";
+            render += "#";
         }else{
-            return "-";
+            render += "-";
         }
+        render += "\u001B[0m";
+        return render;
     }
 
     // public short getFgColor(){

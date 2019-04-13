@@ -6,11 +6,15 @@ public class Coop extends Land{
     }
 
     public String render(){
+        // yellow text
+        String render = "\u001B[33m";
         if(haveGrass()){
-            return "*";
+            render += "*";
         }else{
-            return "o";
+            render += "o";
         }
+        render += "\u001B[0m";
+        return render;
     }
 
     // public short getFgColor(){

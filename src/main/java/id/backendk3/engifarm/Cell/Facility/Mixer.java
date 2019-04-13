@@ -8,6 +8,8 @@ public class Mixer extends Facility{
     }
 
     public String render(){
-        return "M";
+        // black text
+        // white back
+        return "\u001B[30m" + "\u001B[47m" + "M" +"\u001B[0m";
     }
 }
