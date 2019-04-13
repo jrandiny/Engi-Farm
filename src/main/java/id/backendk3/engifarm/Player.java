@@ -29,7 +29,7 @@ public class Player{
     private final int MAX_WATER = 50;
     private final int MAX_ITEM_BAG = 10;
     private int itemCount;
-    private java.util.Map<Product,Integer> bag;
+    private Map<Product,Integer> bag;
     private int water;
     private int money;
     private int posX;
@@ -47,17 +47,25 @@ public class Player{
         itemCount = 0;
         bag = new HashMap<Product,Integer>();
     }
-    public java.util.Map<Product,Integer> getBag(){
+    public Map<Product,Integer> getBag(){
         return bag;
     }
     public void addBag(Product p) {
         if (itemCount<MAX_ITEM_BAG){
-            Integer tempCount = bag.get(p);
-            if(tempCount!=null){
-                tempCount++;
-            }else{
+            if(bag.containsKey(p)){
+                // System.out.println("found");
+                Integer tempCount = (Integer)bag.get(p);
+                bag.replace(p,++tempCount);
+            } else {
+                // System.out.println("new");
                 bag.put(p,1);
             }
+            // Integer tempCount = (Integer) bag.get(p);
+            // if(tempCount!=null){
+            //     
+            // }else{
+            //     
+            // }
             itemCount++;
         } else {
             throw new RuntimeException("Bag is full");
@@ -194,7 +202,6 @@ public class Player{
     
             if (same){
                 for (int j=0;j<i;j++){
-                    // std::map<std::shared_ptr<Product>,int>::iterator iter = bag.find(std::shared_ptr<Product>(resep.get(j)));
                     Product tempProduct = resep.get(j);
                     int count = bag.get(tempProduct);
                     if(count==1){
@@ -205,15 +212,15 @@ public class Player{
                 }
                 addBag(sp);
             } else {
-                // throw new RuntimeException("Item in bag are not enough to make "+sp.render());
+                throw new RuntimeException("Item in bag are not enough to make "+sp.render());
             }
         } else {
             throw new RuntimeException("Bag is full");
         }
     }
-    // public String render(){
-    //     return "P";
-    // }
+    public String render(){
+        return "👨";
+    }
 
     
 }
