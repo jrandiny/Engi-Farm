@@ -2,7 +2,28 @@ package id.backendk3.engifarm.Product;
 
 public abstract class Product{
 
-    public enum ProductType {BeefRoladeType,EggBenedictType,MeatzaType,ChickenEggType,CowMeatType,CowMilkType,DuckEggType,GoatMeatType,GoatMilkType,HorseMeatType,RabbitMeatType};
+    public enum ProductType{
+        BeefRoladeType(0),
+        EggBenedictType(1),
+        MeatzaType(2),
+        ChickenEggType(3),
+        CowMeatType(4),
+        CowMilkType(5),
+        DuckEggType(6),
+        GoatMeatType(7),
+        GoatMilkType(8),
+        HorseMeatType(9),
+        RabbitMeatType(10); 
+    
+        private final int VALUE;
+        private ProductType(int value) {
+            this.VALUE = value;
+        }
+    
+        public int getValue() {
+            return VALUE;
+        }
+    }
 
     protected final int HARGA;
     protected final ProductType TYPE;
@@ -31,4 +52,11 @@ public abstract class Product{
         Product temp = (Product)P;
         return temp.getType() == this.getType();
     }
+
+    @Override
+    public int hashCode(){
+        return getType().getValue();
+    }
+
+    public abstract String render();
 }
