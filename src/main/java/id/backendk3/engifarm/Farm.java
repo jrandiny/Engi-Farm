@@ -1,8 +1,10 @@
 package id.backendk3.engifarm;
 
-import java.util.LinkedList;
+// import java.util.LinkedList;
 import java.util.LinkedHashSet;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Arrays;
 import id.backendk3.engifarm.Cell.Cell;
 import id.backendk3.engifarm.Cell.Facility.*;
 import id.backendk3.engifarm.Cell.Land.*;
@@ -25,7 +27,7 @@ public class Farm{
 
     private final int WIDTH;
     private final int HEIGHT;
-    private LinkedList<LinkedList<Cell>> map;
+    private ArrayList<ArrayList<Cell>> map;
     private LinkedHashSet<Facility> facilities;
     private ArrayList<FarmAnimal> farmAnimals;
     
@@ -54,9 +56,11 @@ public class Farm{
         int y = map.size();
         int x = map.get(0).size();
         int count = 0;
+        // System.out.println("in");
         while(count<jumlah){
-            int i = (int) Math.random()*x;
-            int j = (int) Math.random()*y;
+            // System.out.println(count);
+            int i = (int) (Math.random()*x);
+            int j = (int) (Math.random()*y);
             if(!map.get(j).get(i).isOccupied()){
                 if(type==Cell.CellType.TruckType){
                     Cell temp = new Truck(i,j);
@@ -80,7 +84,6 @@ public class Farm{
     }
     private void randomAnimalMap(int xFrom, int yFrom, int xTo, int yTo, Cell.CellType type, int jumlahHewan){
         int count = 0;
-
         while(count<jumlahHewan){
             int i = (int)(Math.random()*(xTo-xFrom+1)+xFrom);
             int j = (int)(Math.random()*(yTo-yFrom+1)+yFrom);
@@ -88,7 +91,7 @@ public class Farm{
             if(!map.get(j).get(i).isOccupied()){
                 switch(type){
                     case CoopType:
-                        chance = (int) Math.random()*2;
+                        chance = (int) (Math.random()*2);
                         if(chance==1){
                             farmAnimals.add(new Chicken(i,j));
                         }else{
@@ -96,7 +99,7 @@ public class Farm{
                         }
                         break;
                     case BarnType:
-                        chance = (int) Math.random()*4;
+                        chance = (int) (Math.random()*4);
                         if(chance==1){
                             farmAnimals.add(new Cow(i,j,type));
                         }else if(chance==2){
@@ -108,7 +111,7 @@ public class Farm{
                         }
                         break;
                     case GrassLandType:
-                        chance = (int) Math.random()*2;
+                        chance = (int) (Math.random()*2);
                         if(chance==1){
                             farmAnimals.add(new Cow(i,j,type));
                         }else{
@@ -118,8 +121,8 @@ public class Farm{
                     default:
                         break;
                 }
-                // Land temp = (Land) (map.get(j).get(i));
-                // temp.addGrass();
+                Land temp = (Land) (map.get(j).get(i));
+                temp.occupy();
                 count++;
             }
         }
@@ -133,21 +136,71 @@ public class Farm{
                 i++;
             }            
         }
-        throw new RuntimeException("No Animal Found");
+        return null;
     }
 
     public Farm(int _WIDTH, int _HEIGHT){
         WIDTH=_WIDTH;
         HEIGHT=_HEIGHT;
+        farmAnimals = new ArrayList<>();
+        facilities = new LinkedHashSet<>();
+
+        int x, y;
+        boolean horizon = Math.random() < 0.5;
+        final int DIVIDER = 4;
+        final int MIN_ANIMAL = 2;
+        ArrayList<Cell.CellType> urutan = new ArrayList<Cell.CellType>(
+            Arrays.asList(
+                Cell.CellType.BarnType,
+                Cell.CellType.CoopType,
+                Cell.CellType.GrassLandType
+            )
+        );
+        map = new ArrayList<ArrayList<Cell>>(HEIGHT);
+        for(int j=0;j<HEIGHT;j++){
+            map.add(new ArrayList<Cell>(WIDTH));
+            for(int i=0;i<WIDTH;i++){
+                map.get(j).add(null);
+            }
+        }
+
+        x = (int)(Math.random()*(WIDTH/4)+(WIDTH/3));
+        y = (int)(Math.random()*(HEIGHT/4)+(HEIGHT/3));
+        Collections.shuffle(urutan);
+
+        int luas;
+        setCellMap(0,0,x,y,urutan.get(0));
+        luas = (x+1)*(y+1);
+        randomAnimalMap(0,0,x,y,urutan.get(0),(int) (Math.random()*(luas/DIVIDER)+MIN_ANIMAL));
+        if(horizon){
+            setCellMap(0,y+1,WIDTH-1,HEIGHT-1,urutan.get(1));
+            setCellMap(x+1,0,WIDTH-1,y,urutan.get(2));
+            luas = (WIDTH)*(HEIGHT-y-1);
+            randomAnimalMap(0,y+1,WIDTH-1,HEIGHT-1,urutan.get(1),(int) (Math.random()*(luas/DIVIDER)+MIN_ANIMAL));
+            luas = (WIDTH-x-1)*(y+1);
+            randomAnimalMap(x+1,0,WIDTH-1,y,urutan.get(2),(int) (Math.random()*(luas/DIVIDER)+MIN_ANIMAL));
+        } else {
+            setCellMap(0,y+1,x,HEIGHT-1,urutan.get(1));
+            setCellMap(x+1,0,WIDTH-1,HEIGHT-1,urutan.get(2));
+            luas = (x+1)*(HEIGHT-y-1);
+            randomAnimalMap(0,y+1,x,HEIGHT-1,urutan.get(1),(int) (Math.random()*(luas/DIVIDER)+MIN_ANIMAL));
+            luas = (WIDTH-x-1)*(HEIGHT);
+            randomAnimalMap(x+1,0,WIDTH-1,HEIGHT-1,urutan.get(2),(int) (Math.random()*(luas/DIVIDER)+MIN_ANIMAL));
+        }
+        // System.out.println("init cell");
+        setFacility(1,Cell.CellType.TruckType);
+        setFacility(1,Cell.CellType.WellType);
+        setFacility(1,Cell.CellType.MixerType);
+        // System.out.println("init facility");
     }
 
     // public void setMap(LinkedList<LinkedList<Cell>> in){
 
     // }
 
-    // public LinkedList<LinkedList<Cell>> getMap(){ //will iyahh ?
-
-    // }
+    public ArrayList<ArrayList<Cell>> getMap(){
+        return map;
+    }
 
     public Cell[] getSurrounding(int x, int y){
         Cell[] result = new Cell[5];
@@ -242,17 +295,14 @@ public class Farm{
     // }
     public FarmAnimal getAnimals(int x, int y, MoveType direction){
         Cell[] surr = getSurrounding(x, y);
+        int[] deltaX = {0,1,0,-1};
+        int[] deltaY = {-1,0,1,0};
         if(surr[direction.getValue()].isOccupied()){
             // mungkin hewan
-            FarmAnimal temp = findFarmAnimal(x, y);
-            if(temp!= null){
-                return temp;
-            } else {
-                throw new RuntimeException("No Animal Found");
-            }
-        } else {
-            throw new RuntimeException("No Animal Found");
+            FarmAnimal temp = findFarmAnimal(x + deltaX[direction.getValue()],y+deltaY[direction.getValue()]);
+            return temp;
         }
+        return null;
 
     }
 
@@ -265,7 +315,7 @@ public class Farm{
         try{
             return (Facility) surr[direction.getValue()];
         } catch (ClassCastException e){
-            throw new RuntimeException("No Facility Found");
+            return null;
         }
     }
 
@@ -273,5 +323,22 @@ public class Farm{
         return farmAnimals;
     }
 
-    // public void oneTick(){}
+    public void oneTick(){
+        for(int i=0;i<farmAnimals.size();i++){
+            if(farmAnimals.get(i).getDeathStatus()){
+                ((Land) (map.get(farmAnimals.get(i).getY()).get(farmAnimals.get(i).getX()))).unoccupy();
+                farmAnimals.remove(i);
+            } else {
+                boolean chance = Math.random() >= 0.6;
+                if(chance || !farmAnimals.get(i).getEatStatus()){
+                    Cell[] surr = getSurrounding(farmAnimals.get(i).getX(),farmAnimals.get(i).getY());
+                    farmAnimals.get(i).moveRandom(surr);
+                }
+                // farmAnimals[i].tick();
+            }
+        }
+        // for(int i=0;i<(int)truck.size();i++){
+        //     truck[i]->tick();
+        // }
+    }
 }
