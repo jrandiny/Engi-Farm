@@ -1,5 +1,7 @@
 package id.backendk3.engifarm.FarmAnimal;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Arrays;
 import id.backendk3.engifarm.Product.Product;
 import id.backendk3.engifarm.Cell.Cell;
@@ -24,22 +26,30 @@ public abstract class FarmAnimal{
         posY=y;
         habitat=_type;
         TIME_TO_HUNGRY=time;
+        setEatStatus(true);
         setDeathStatus(false);
     }
     public void moveRandom(Cell[] surr){
         boolean found = false;
+        int i=0;
         Farm.MoveType way = null;
-        boolean[] movement = {false,false,false,false};
-        while(!found && Arrays.asList(movement).contains(false)){
-            way = Farm.MoveType.values()[(int)(Math.random()*4)];
-            if(surr[way.getValue()]!=null && !movement[way.getValue()]){
+        ArrayList<Farm.MoveType> movement = new ArrayList<>(
+            Arrays.asList(
+                Farm.MoveType.Up,
+                Farm.MoveType.Right,
+                Farm.MoveType.Down,
+                Farm.MoveType.Left));
+        Collections.shuffle(movement);
+        while(!found && i<movement.size()){
+            way = movement.get(i);
+            if(surr[way.getValue()]!=null){
                 if(!surr[way.getValue()].isOccupied() && surr[way.getValue()].getType()==habitat){
                     found=true;
                 }else{
-                    movement[way.getValue()]=true;    
+                    i++;    
                 }
             }else{
-                movement[way.getValue()]=true;
+                i++;
             }
         }
 
@@ -68,7 +78,6 @@ public abstract class FarmAnimal{
         
         if(!eatStatus && now.haveGrass()){
             setEatStatus(true);
-            haveProduct = true;
             now.removeGrass();
         }
     }
@@ -76,9 +85,12 @@ public abstract class FarmAnimal{
     public abstract Product getProduct();
 
     public abstract String speak();
+
+    public abstract String render();
     
     public void setEatStatus(boolean status){
         eatStatus=status;
+        haveProduct = true;
         // if(eatStatus){
         //     setAndActivate(TIME_TO_HUNGRY);
         // } else {
