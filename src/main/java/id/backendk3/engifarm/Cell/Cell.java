@@ -36,6 +36,8 @@ public abstract class Cell implements Comparable<Cell>{
         return Y;
     }
 
+    public abstract String render();
+
     @Override
     public int compareTo(Cell otherCell){
         if(TYPE==otherCell.TYPE){
