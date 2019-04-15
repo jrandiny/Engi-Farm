@@ -1,15 +1,24 @@
 package id.backendk3.engifarm.Cell.Facility;
 
 import id.backendk3.engifarm.Cell.Facility.Facility;
+import java.awt.Color;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class Mixer extends Facility{
     public Mixer(int x, int y){
         super(x,y,CellType.MixerType);
     }
 
-    public String render(){
-        // black text
-        // white back
-        return "\u001B[30m" + "\u001B[47m" + "M" +"\u001B[0m";
+    public Image getSprite() throws IOException {
+        Image image = ImageIO.read(new File("image.png"));
+        return image;
+    }
+
+    public Color getBGColor(){
+        return Color.WHITE;
     }
 }

@@ -1,6 +1,8 @@
 package id.backendk3.engifarm.Cell;
 
-public abstract class Cell implements Comparable<Cell>{
+import id.backendk3.engifarm.Sprite;
+
+public abstract class Cell implements Comparable<Cell>, Sprite{
     public enum CellType{
         MixerType,TruckType,WellType,BarnType,CoopType,GrassLandType
     }
@@ -15,10 +17,6 @@ public abstract class Cell implements Comparable<Cell>{
         Y=_y;
         TYPE=_type;
     }
-
-    // public void setOccupied(boolean _occupied){
-    //     occupied=_occupied;
-    // }
 
     public boolean isOccupied(){
         return occupied;
@@ -35,8 +33,6 @@ public abstract class Cell implements Comparable<Cell>{
     public int getY(){
         return Y;
     }
-
-    public abstract String render();
 
     @Override
     public int compareTo(Cell otherCell){

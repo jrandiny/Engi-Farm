@@ -8,6 +8,7 @@ public abstract class Facility extends Cell{
     protected Facility(int _x, int _y, CellType _type){
         super(_x,_y,_type);
         occupied = true;
+        usable = true;
     }
 
     public boolean isUsable(){

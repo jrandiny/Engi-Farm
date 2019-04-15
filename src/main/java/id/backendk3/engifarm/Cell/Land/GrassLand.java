@@ -1,23 +1,23 @@
 package id.backendk3.engifarm.Cell.Land;
 
-public class GrassLand extends Land{
-    public GrassLand(int _x,int _y){
-        super(_x,_y,CellType.GrassLandType);
+import java.awt.Color;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
+public class GrassLand extends Land {
+    public GrassLand(int _x, int _y) {
+        super(_x, _y, CellType.GrassLandType);
     }
 
-    public String render(){
-        // Green text
-        String render = "\u001B[32m";
-        if(haveGrass()){
-            render += "#";
-        }else{
-            render += "-";
-        }
-        render += "\u001B[0m";
-        return render;
+    public Image getSprite() throws IOException {
+        Image image = ImageIO.read(new File("image.png"));
+        return image;
     }
 
-    // public short getFgColor(){
-    //     return 1;//belum tahu
-    // }
+    public Color getBGColor(){
+        return Color.GREEN;
+    }
 }

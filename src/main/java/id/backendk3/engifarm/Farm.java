@@ -1,6 +1,7 @@
 package id.backendk3.engifarm;
 
 // import java.util.LinkedList;
+import java.util.Observable;
 import java.util.LinkedHashSet;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,7 +12,7 @@ import id.backendk3.engifarm.Cell.Land.*;
 // import id.backendk3.engifarm.Cell.Land.Land;
 import id.backendk3.engifarm.FarmAnimal.*;
 
-public class Farm{
+public class Farm extends Observable{
     public enum MoveType{
         Up(0),Right(1),Down(2),Left(3),Center(4); 
     
@@ -23,6 +24,11 @@ public class Farm{
         public int getValue() {
             return VALUE;
         }
+    }
+
+    public void testObs(){
+        setChanged();
+        notifyObservers();
     }
 
     private final int WIDTH;
@@ -192,6 +198,8 @@ public class Farm{
         setFacility(1,Cell.CellType.WellType);
         setFacility(1,Cell.CellType.MixerType);
         // System.out.println("init facility");
+
+        notifyObservers();
     }
 
     // public void setMap(LinkedList<LinkedList<Cell>> in){

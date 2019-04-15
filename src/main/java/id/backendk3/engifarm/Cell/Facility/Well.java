@@ -1,5 +1,12 @@
 package id.backendk3.engifarm.Cell.Facility;
 
+import java.awt.Color;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 import id.backendk3.engifarm.Cell.Facility.Facility;
 
 public class Well extends Facility{
@@ -7,9 +14,12 @@ public class Well extends Facility{
         super(x,y,CellType.WellType);
     }
 
-    public String render(){
-        // black text
-        // white back
-        return "\u001B[30m" + "\u001B[47m" + "W" +"\u001B[0m";
+    public Image getSprite() throws IOException{
+        Image image = ImageIO.read(new File("image.png"));
+        return image;
+    }
+
+    public Color getBGColor(){
+        return Color.WHITE;
     }
 }

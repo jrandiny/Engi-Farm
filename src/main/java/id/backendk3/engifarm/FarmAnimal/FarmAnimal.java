@@ -7,6 +7,7 @@ import id.backendk3.engifarm.Product.Product;
 import id.backendk3.engifarm.Cell.Cell;
 import id.backendk3.engifarm.Cell.Land.*;
 import id.backendk3.engifarm.Farm;
+import id.backendk3.engifarm.Sprite;
 
 public abstract class FarmAnimal{
     protected final int TIME_TO_HUNGRY;
@@ -17,10 +18,7 @@ public abstract class FarmAnimal{
     protected boolean deathStatus;
     protected Cell.CellType habitat;
     protected boolean haveProduct;
-    protected void setHaveProduct(boolean flag){
-        this.haveProduct = flag;
-    }
-
+    
     public FarmAnimal(int x,int y,int time, Cell.CellType _type){
         posX=x;
         posY=y;
@@ -39,9 +37,9 @@ public abstract class FarmAnimal{
                 Farm.MoveType.Right,
                 Farm.MoveType.Down,
                 Farm.MoveType.Left));
-        Collections.shuffle(movement);
-        while(!found && i<movement.size()){
-            way = movement.get(i);
+                Collections.shuffle(movement);
+                while(!found && i<movement.size()){
+                    way = movement.get(i);
             if(surr[way.getValue()]!=null){
                 if(!surr[way.getValue()].isOccupied() && surr[way.getValue()].getType()==habitat){
                     found=true;
@@ -52,26 +50,26 @@ public abstract class FarmAnimal{
                 i++;
             }
         }
-
+        
         Land now=(Land)surr[Farm.MoveType.Center.getValue()];
-
+        
         if(found){
             now.unoccupy();
             ((Land)surr[way.getValue()]).occupy();
             switch(way){
                 case Up:
-                    posY--;
-                    break;
+                posY--;
+                break;
                 case Right:
-                    posX++;
-                    break;
+                posX++;
+                break;
                 case Down:
-                    posY++;
+                posY++;
                     break;
-                case Left:
+                    case Left:
                     posX--;
                     break;
-                default:
+                    default:
                     break;
             }
         }
@@ -81,58 +79,62 @@ public abstract class FarmAnimal{
             now.removeGrass();
         }
     }
-
+    
     public abstract Product getProduct();
 
     public abstract String speak();
-
+    
     public abstract String render();
     
     public void setEatStatus(boolean status){
         eatStatus=status;
         haveProduct = true;
         // if(eatStatus){
-        //     setAndActivate(TIME_TO_HUNGRY);
-        // } else {
+            //     setAndActivate(TIME_TO_HUNGRY);
+            // } else {
         //     setAndActivate(TIME_TO_DEATH);
         // }
     }
-
+    
     public void setDeathStatus(boolean status){
         deathStatus=status;
         // if(deathStatus){
-        //     deactivateTimer();
-        // } else {
-        //     setEatStatus(true);
-        // }
+            //     deactivateTimer();
+            // } else {
+                //     setEatStatus(true);
+                // }
     }
 
     public boolean getEatStatus(){
         return eatStatus;
     }
-
+    
     public boolean getDeathStatus(){
         return deathStatus;
     }
-
+    
     // public void callback(){
-    //     if(eatStatus)
+        //     if(eatStatus)
     //         setEatStatus(false);
     //     else 
     //         setDeathStatus(true);
     // }
-
+    
     public int getX(){
         return posX;
     }
     public int getY(){
         return posY;
     }
-
+    
     public Cell.CellType getHabitat(){
         return habitat;
     }
     public boolean getHaveProduct(){
         return haveProduct;
+    }
+
+    public  void setHaveProduct(boolean flag){
+        this.haveProduct = flag;
     }
 }

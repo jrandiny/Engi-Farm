@@ -142,10 +142,14 @@ public class Player{
         }
     }
     public void interact(Well w){
-        if(water<MAX_WATER)
-            water = MAX_WATER;
-        else
-            throw new RuntimeException("Watering can is full");
+        if(w.isUsable()){
+            if(water<MAX_WATER)
+                water = MAX_WATER;
+            else
+                throw new RuntimeException("Watering can is full");
+        } else {
+            throw new RuntimeException("Well is not useable");
+        }
     }
     public void interact(Truck truck){
         if(truck.isUsable()){
