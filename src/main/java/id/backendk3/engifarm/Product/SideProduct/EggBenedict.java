@@ -3,15 +3,27 @@ package id.backendk3.engifarm.Product.SideProduct;
 import id.backendk3.engifarm.Product.Product;
 import id.backendk3.engifarm.Product.SideProduct.SideProduct;
 import id.backendk3.engifarm.Product.FarmProduct.DuckEgg;
-import id.backendk3.engifarm.Product.FarmProduct.RabbitMeat;
 import id.backendk3.engifarm.Product.FarmProduct.GoatMilk;
+import id.backendk3.engifarm.Product.FarmProduct.RabbitMeat;
 import java.util.LinkedList;
 
+/**
+ * Kelas riil EggBenedict turunan SideProduct 
+ * EggBenedict dapat dibuat dari DuckEgg, GoatMilk, dan RabbirMeat dari FarmProduct
+ */
 public class EggBenedict extends SideProduct{
+    
+    /**
+     * Konstruktor kelas EgBenedict
+     */
     public EggBenedict(){
         super(ProductType.EggBenedictType, 600);
     }
 
+    /**
+     * Fungsi yang mengembalikan linkedlist produk yang berisi bahan pembuat EgBenedict
+     * @return LinkedList produk yang berisi bahan-bahan untuk membuat EgBenedict
+     */
     public LinkedList<Product> getRecipe(){
         LinkedList<Product> recipe = new LinkedList<Product>();
         
@@ -21,6 +33,10 @@ public class EggBenedict extends SideProduct{
         return recipe;
     }
 
+    /**
+     * Fungsi yang mengembalikan string untuk dirender yang merepresentasikan EgBenedict
+     * @return String untuk dirender yang akan ditampilkan dan merepresentasikan EgBenedict
+     */
     public String render(){
         return "Egg Benedict";
     }

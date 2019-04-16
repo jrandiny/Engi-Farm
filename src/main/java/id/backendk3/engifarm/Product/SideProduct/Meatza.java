@@ -7,11 +7,23 @@ import id.backendk3.engifarm.Product.FarmProduct.HorseMeat;
 import id.backendk3.engifarm.Product.FarmProduct.RabbitMeat;
 import java.util.LinkedList;
 
+/**
+ * Kelas riil Meatza turunan SideProduct 
+ * Meatza dapat dibuat dari GoatMeat, HorseMeat, dan RabbitMeat dari FarmProduct
+ */
 public class Meatza extends SideProduct{
+    
+    /**
+     * Konstruktor kelas Meatza
+     */
     public Meatza(){
         super(ProductType.MeatzaType, 600);
     }
 
+    /**
+     * Fungsi yang mengembalikan linkedlist produk yang berisi bahan pembuat Meatza
+     * @return LinkedList produk yang berisi bahan-bahan untuk membuat Meatza
+     */
     public LinkedList<Product> getRecipe(){
         LinkedList<Product> recipe = new LinkedList<Product>();
         
@@ -21,6 +33,10 @@ public class Meatza extends SideProduct{
         return recipe;
     }
 
+    /**
+     * Fungsi yang mengembalikan string untuk dirender yang merepresentasikan Meatza
+     * @return String untuk dirender yang akan ditampilkan dan merepresentasikan Meatza
+     */
     public String render(){
         return "Meatza";
     }
