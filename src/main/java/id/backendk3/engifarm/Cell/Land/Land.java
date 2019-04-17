@@ -5,6 +5,13 @@ import id.backendk3.engifarm.Cell.Cell;
 public abstract class Land extends Cell{
     private boolean grass;
 
+    /**
+     * Konstruktor kelas Land
+     * 
+     * @param _x Lokasi X
+     * @param _y Lokasi Y
+     * @param _type Tipe tanah
+     */
     public Land(int _x, int _y, CellType _type){
         super(_x,_y,_type);
         grass = true;
