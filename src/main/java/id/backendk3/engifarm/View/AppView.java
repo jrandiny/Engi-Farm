@@ -3,8 +3,11 @@ package id.backendk3.engifarm.View;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 
+import id.backendk3.engifarm.Controller.InputController;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyListener;
 import java.util.Observer;
 import java.util.Observable;
 
@@ -27,6 +30,11 @@ public class AppView extends JFrame implements Observer {
         $$$setupUI$$$();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
+        this.setFocusable(true);
+    }
+
+    public void setKeyListener(KeyListener kl){
+        this.addKeyListener(kl);
     }
 
     public MapView getMap(){

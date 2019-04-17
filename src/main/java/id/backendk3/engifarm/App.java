@@ -8,6 +8,7 @@ import id.backendk3.engifarm.View.MapView;
 import id.backendk3.engifarm.Cell.*;
 import id.backendk3.engifarm.Cell.Facility.*;
 import id.backendk3.engifarm.Cell.Land.*;
+import id.backendk3.engifarm.Controller.InputController;
 import id.backendk3.engifarm.FarmAnimal.*;
 // import id.backendk3.engifarm.Product.*;
 // import id.backendk3.engifarm.Product.FarmProduct.*;
@@ -27,7 +28,10 @@ public class App
         myAppView = new AppView();
 
         MapView mv = myAppView.getMap();
+        InputController ic = new InputController();
         
+        myAppView.setKeyListener(ic);
+
         Farm myFarm = new Farm(8,8);
 
         myFarm.addObserver(mv);
