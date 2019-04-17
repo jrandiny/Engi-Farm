@@ -9,16 +9,45 @@ import id.backendk3.engifarm.Cell.Land.*;
 import id.backendk3.engifarm.Farm;
 import id.backendk3.engifarm.Sprite;
 
+/**
+ * Kelas abstrak FarmAnimal
+ * 
+ * <p>Kelas merepresantasikan hewan tertentu.
+ * 
+ * @author backendk3
+ * @see Chicken
+ * @see Cow
+ * @see Duck
+ * @see Goat
+ * @see Horse
+ * @see Rabbit
+ */
+
 public abstract class FarmAnimal{
+    /** Waktu hewan hingga lapar */
     protected final int TIME_TO_HUNGRY;
+    /** Waktu hewan hingga mati */
     protected final int TIME_TO_DEATH=10;
+    /** Lokasi X */
     protected int posX;
+    /** Lokasi Y */
     protected int posY;
+    /** Status apakah hewan sudah makan atau belum */
     protected boolean eatStatus;
+    /** Status apakah hewan sudah mati atau belum */
     protected boolean deathStatus;
+    /** Tipe habitat dari hewan */
     protected Cell.CellType habitat;
+    /** Status apakah hewan sudah punya produk atau belum */
     protected boolean haveProduct;
     
+    /**
+     * Konstruktor kelas FarmAnimal
+     * @param x Lokasi X
+     * @param y Lokasi Y
+     * @param time Waktu lapar hewan
+     * @param _type Tipe habitat
+     */
     public FarmAnimal(int x,int y,int time, Cell.CellType _type){
         posX=x;
         posY=y;
@@ -27,6 +56,13 @@ public abstract class FarmAnimal{
         setEatStatus(true);
         setDeathStatus(false);
     }
+
+    /**
+     * <p>Membuat hewan bergerak secara random ke sekitarnya.
+     * Jika lapar dan bergerak ke tempat yang ada rumputnya,
+     * hewan akan memakan rumput
+     * @param surr Cell di sekitar hewan (atas, kanan, bawah, kiri, tengah)
+     */
     public void moveRandom(Cell[] surr){
         boolean found = false;
         int i=0;
@@ -80,12 +116,31 @@ public abstract class FarmAnimal{
         }
     }
     
+    /**
+     * Fungsi abstrak yang akan diimplementasikan hewan tertentu
+     * untuk mendapatkan produk hewan tersebut
+     * @return Product hewan tertentu
+     */
     public abstract Product getProduct();
 
+    /**
+     * Fungsi abstrak yang akan diimplementasikan hewan tertentu
+     * untuk mendapatkan suara hewan tersebut
+     * @return String suara hewan tertentu
+     */
     public abstract String speak();
     
+    /**
+     * Fungsi abstrak yang akan diimplementasikan hewan tertentu
+     * untuk mendapatkan representasi render hewan tersebut
+     * @return String render hewan tertentu
+     */
     public abstract String render();
     
+    /**
+     * Setter status makan dari hewan
+     * @param status Status makan
+     */
     public void setEatStatus(boolean status){
         eatStatus=status;
         haveProduct = true;
@@ -96,6 +151,10 @@ public abstract class FarmAnimal{
         // }
     }
     
+    /**
+     * Setter status kematian dari hewan
+     * @param status Status kematian
+     */
     public void setDeathStatus(boolean status){
         deathStatus=status;
         // if(deathStatus){
@@ -105,10 +164,18 @@ public abstract class FarmAnimal{
                 // }
     }
 
+    /**
+     * Getter status makan dari hewan
+     * @return Boolean status makan hewan
+     */
     public boolean getEatStatus(){
         return eatStatus;
     }
     
+    /**
+     * Getter status kematian dari hewan
+     * @return Boolean status kematian hewan
+     */
     public boolean getDeathStatus(){
         return deathStatus;
     }
@@ -120,20 +187,42 @@ public abstract class FarmAnimal{
     //         setDeathStatus(true);
     // }
     
+    /**
+     * Mengembalikan lokasi X
+     * @return Lokasi X
+     */
     public int getX(){
         return posX;
     }
+
+    /**
+     * Mengembalikan lokasi Y
+     * @return Lokasi Y
+     */
     public int getY(){
         return posY;
     }
     
+    /**
+     * Mengembalikan tipe habitat hewan
+     * @return CellType habitat hewan
+     */
     public Cell.CellType getHabitat(){
         return habitat;
     }
+
+    /**
+     * Getter status produk dari hewan
+     * @return Boolean status produk hewan
+     */
     public boolean getHaveProduct(){
         return haveProduct;
     }
 
+    /**
+     * Setter status produk dari hewan
+     * @param flag Status produk hewan
+     */
     public  void setHaveProduct(boolean flag){
         this.haveProduct = flag;
     }
