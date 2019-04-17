@@ -8,16 +8,43 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * Kelas riil turuan Facility
+ * 
+ * <p>Kelas untuk salah satu tipe {@link Facility}.
+ * Tipe fasiltas ini berguna untuk mencampurkan bahan-bahan
+ * untuk menghasilkan suatu {@link SideProduct}
+ * 
+ * @author backendk3
+ * @see Facility
+ */
 public class Mixer extends Facility{
+    /**
+     * Konstuktor kelas Mixer
+     * 
+     * @param x Lokasi x
+     * @param y Lokasi y
+     */
     public Mixer(int x, int y){
         super(x,y,CellType.MixerType);
     }
 
+    /**
+     * Mengembalikan sprite untuk Mixer
+     * 
+     * @return Gambar sprite
+     * @throws IOException jika gambar tidak tersedia atau tidak dapat dibuka
+     */
     public Image getSprite() throws IOException {
         Image image = ImageIO.read(new File("image.png"));
         return image;
     }
 
+    /**
+     * Mengembalikan warna background untuk tile {@link Farm}
+     * 
+     * @return Warna background tile Mixer
+     */
     public Color getBGColor(){
         return Color.WHITE;
     }

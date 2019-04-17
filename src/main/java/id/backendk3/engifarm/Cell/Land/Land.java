@@ -2,6 +2,18 @@ package id.backendk3.engifarm.Cell.Land;
 
 import id.backendk3.engifarm.Cell.Cell;
 
+/**
+ * Kelas abstrak turunan Cell
+ * 
+ * <p>Kelas ini merepresentasikan Cell yang bertipe tanah. 
+ * Tanah secara <i>default</i> dapat dijalani kecuali di-<i>occupy</i>
+ * 
+ * @author backendk3
+ * @see Cell
+ * @see Coop
+ * @see GrassLand
+ * @see Barn
+ */
 public abstract class Land extends Cell{
     private boolean grass;
 
@@ -18,22 +30,47 @@ public abstract class Land extends Cell{
         occupied = false;
     }
 
+    /**
+     * Menempati sebuah Land
+     * 
+     * <p>Membuat sebuah Land jadi <i>occupied</i>. Jika Land sudah
+     * ter-<i>occupied</i>, tidak akan terjadi apa-apa
+     */
     public void occupy(){
         occupied = true;
     }
 
+    /**
+     * Tidak menempati lagi sebuah Land
+     * 
+     * <p>Membuat sebuah Land jadi tidak <i>occupied</i>. Jika Land sudah
+     * tidak ter-<i>occupied</i>, tidak akan terjadi apa-apa
+     */
     public void unoccupy(){
         occupied = false;
     }
 
+    /**
+     * Mengecek apakah tanah mempunyai rumput
+     * 
+     * @return true jika tanah memiliki rumput
+     */
     public boolean haveGrass(){
         return grass;
     }
 
+    /**
+     * Menghilangkan rumput pada tanah jika ada.
+     * Jika tidak ada rumput, tidak terjadi apa-apa
+     */
     public void removeGrass(){
         grass = false;
     }
 
+    /**
+     * Menumbuhkan rumput pada tanah jika ada.
+     * Jika sudah ada rumput, tidak terjadi apa-apa
+     */
     public void addGrass(){
         grass = true;
     }
