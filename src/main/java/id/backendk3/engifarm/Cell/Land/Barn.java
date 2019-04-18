@@ -2,7 +2,6 @@ package id.backendk3.engifarm.Cell.Land;
 
 import java.awt.Color;
 import java.awt.Image;
-import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -34,8 +33,12 @@ public class Barn extends Land{
      * @throws IOException jika gambar tidak tersedia atau tidak dapat dibuka
      */
     public Image getSprite() throws IOException{
-        Image image = ImageIO.read(new File("image.png"));
-        return image;
+        if(haveGrass()){
+            Image image = ImageIO.read(getClass().getClassLoader().getResource("sprites/grass.png"));
+            return image;
+        }else{
+            return null;
+        }
     }
 
     /**

@@ -3,7 +3,7 @@ package id.backendk3.engifarm.Cell.Facility;
 import id.backendk3.engifarm.Cell.Cell;
 
 /**
- * Kelas abstrak turunan Cell
+ * Kelas abstrak Facility turunan Cell
  * 
  * <p>Kelas ini merepresentasikan Cell yang bertipe fasilitas.
  * Karena berupa fasilitas, fasilitas akan selalu ter-<i>occupied</i>
