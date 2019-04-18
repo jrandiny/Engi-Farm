@@ -11,10 +11,10 @@ import id.backendk3.engifarm.Cell.Cell;
 import id.backendk3.engifarm.Cell.Land.*;
 import id.backendk3.engifarm.Farm;
 import id.backendk3.engifarm.Sprite;
-import id.backendk3.engifarm.Timerable;
+import id.backendk3.engifarm.TimerObj;
 
 /**
- * Kelas abstrak FarmAnimal
+ * Kelas abstrak FarmAnimal turunan TimerObj
  * 
  * <p>Kelas merepresantasikan hewan tertentu.
  * 
@@ -27,7 +27,7 @@ import id.backendk3.engifarm.Timerable;
  * @see Rabbit
  */
 
-public abstract class FarmAnimal implements Timerable, Sprite{
+public abstract class FarmAnimal extends TimerObj implements Sprite{
     /** Waktu hewan hingga lapar */
     protected final int TIME_TO_HUNGRY;
     /** Waktu hewan hingga mati */
@@ -44,7 +44,7 @@ public abstract class FarmAnimal implements Timerable, Sprite{
     protected Cell.CellType habitat;
     /** Status apakah hewan sudah punya produk atau belum */
     protected boolean haveProduct;
-    
+
     /**
      * Konstruktor kelas FarmAnimal
      * @param x Lokasi X
@@ -98,18 +98,18 @@ public abstract class FarmAnimal implements Timerable, Sprite{
             ((Land)surr[way.getValue()]).occupy();
             switch(way){
                 case Up:
-                posY--;
-                break;
-                case Right:
-                posX++;
-                break;
-                case Down:
-                posY++;
+                    posY--;
                     break;
-                    case Left:
+                case Right:
+                    posX++;
+                    break;
+                case Down:
+                    posY++;
+                    break;
+                case Left:
                     posX--;
                     break;
-                    default:
+                default:
                     break;
             }
         }
@@ -141,11 +141,13 @@ public abstract class FarmAnimal implements Timerable, Sprite{
     public void setEatStatus(boolean status){
         eatStatus=status;
         haveProduct = true;
-        // if(eatStatus){
-            //     setAndActivate(TIME_TO_HUNGRY);
-            // } else {
-        //     setAndActivate(TIME_TO_DEATH);
-        // }
+        if(eatStatus){
+            setTimer(TIME_TO_HUNGRY);
+            setTimerActive(true);
+        } else {
+            setTimer(TIME_TO_DEATH);
+            setTimerActive(true);
+        }
     }
     
     /**
@@ -154,11 +156,11 @@ public abstract class FarmAnimal implements Timerable, Sprite{
      */
     public void setDeathStatus(boolean status){
         deathStatus=status;
-        // if(deathStatus){
-            //     deactivateTimer();
-            // } else {
-                //     setEatStatus(true);
-                // }
+        if(deathStatus){
+            setTimerActive(false);
+        } else {
+            setEatStatus(true);
+        }
     }
 
     /**
@@ -177,11 +179,16 @@ public abstract class FarmAnimal implements Timerable, Sprite{
         return deathStatus;
     }
     
+    /**
+     * Menyatakan hewan dalam kondisi lapar jika timer objek hewan dengan waktu kelaparan sudah habis
+     * <p>Menyatakan hewan dalam kondisi mati jika timer objek hewan dengan waktu kematian sudah habis 
+     */
     public void callback(){
-            if(eatStatus)
+        if(eatStatus){
             setEatStatus(false);
-        else 
+        }else{
             setDeathStatus(true);
+        }
     }
     
     /**
