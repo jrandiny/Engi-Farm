@@ -64,7 +64,13 @@ public class Goat extends FarmAnimal{
      * @return Gambar sprite Goat
      */
     public Image getSprite() throws IOException{
-        Image image = ImageIO.read(getClass().getClassLoader().getResource("sprites/animal/goat.png"));
+        Image image;
+        if(getEatStatus()){
+            // sudah makan
+            image = ImageIO.read(getClass().getClassLoader().getResource("sprites/animal/goat.png"));
+        } else {
+            image = ImageIO.read(getClass().getClassLoader().getResource("sprites/animal/goat-hungry.png"));
+        }
         return image;
     }
 }

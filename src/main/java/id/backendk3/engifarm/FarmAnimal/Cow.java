@@ -66,7 +66,13 @@ public class Cow extends FarmAnimal{
      * @return Gambar sprite Cow
      */
     public Image getSprite() throws IOException{
-        Image image = ImageIO.read(getClass().getClassLoader().getResource("sprites/animal/cow.png"));
+        Image image;
+        if(getEatStatus()){
+            // sudah makan
+            image = ImageIO.read(getClass().getClassLoader().getResource("sprites/animal/cow.png"));
+        } else {
+            image = ImageIO.read(getClass().getClassLoader().getResource("sprites/animal/cow-hungry.png"));
+        }
         return image;
     }
 }

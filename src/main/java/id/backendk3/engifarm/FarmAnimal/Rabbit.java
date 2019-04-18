@@ -55,7 +55,13 @@ public class Rabbit extends FarmAnimal{
      * @return Gambar sprite Rabbit
      */
     public Image getSprite() throws IOException{
-        Image image = ImageIO.read(getClass().getClassLoader().getResource("sprites/animal/rabbit.png"));
+        Image image;
+        if(getEatStatus()){
+            // sudah makan
+            image = ImageIO.read(getClass().getClassLoader().getResource("sprites/animal/rabbit.png"));
+        } else {
+            image = ImageIO.read(getClass().getClassLoader().getResource("sprites/animal/rabbit-hungry.png"));
+        }
         return image;
     }
 }

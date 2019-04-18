@@ -56,7 +56,13 @@ public class Horse extends FarmAnimal{
      * @return Gambar sprite Horse
      */
     public Image getSprite() throws IOException{
-        Image image = ImageIO.read(getClass().getClassLoader().getResource("sprites/animal/horse.png"));
+        Image image;
+        if(getEatStatus()){
+            // sudah makan
+            image = ImageIO.read(getClass().getClassLoader().getResource("sprites/animal/horse.png"));
+        } else {
+            image = ImageIO.read(getClass().getClassLoader().getResource("sprites/animal/horse-hungry.png"));
+        }
         return image;
     }
 }

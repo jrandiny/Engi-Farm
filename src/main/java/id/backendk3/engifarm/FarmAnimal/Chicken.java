@@ -56,7 +56,13 @@ public class Chicken extends FarmAnimal{
      * @return Gambar sprite Chicken
      */
     public Image getSprite() throws IOException{
-        Image image = ImageIO.read(getClass().getClassLoader().getResource("sprites/animal/chicken.png"));
+        Image image;
+        if(getEatStatus()){
+            // sudah makan
+            image = ImageIO.read(getClass().getClassLoader().getResource("sprites/animal/chicken.png"));
+        } else {
+            image = ImageIO.read(getClass().getClassLoader().getResource("sprites/animal/chicken-hungry.png"));
+        }
         return image;
     }
 }

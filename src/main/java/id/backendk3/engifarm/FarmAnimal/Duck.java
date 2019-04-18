@@ -56,7 +56,13 @@ public class Duck extends FarmAnimal{
      * @return Gambar sprite Duck
      */
     public Image getSprite() throws IOException{
-        Image image = ImageIO.read(getClass().getClassLoader().getResource("sprites/animal/duck.png"));
+        Image image;
+        if(getEatStatus()){
+            // sudah makan
+            image = ImageIO.read(getClass().getClassLoader().getResource("sprites/animal/duck.png"));
+        } else {
+            image = ImageIO.read(getClass().getClassLoader().getResource("sprites/animal/duck-hungry.png"));
+        }
         return image;
     }
 }
