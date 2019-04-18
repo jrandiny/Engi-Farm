@@ -10,7 +10,7 @@ import id.backendk3.engifarm.Controller.InputController;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyListener;
+// import java.awt.event.KeyListener;
 import java.util.Observer;
 import java.util.Observable;
 
@@ -25,7 +25,7 @@ public class AppView extends JFrame implements Observer {
     private InputController ic;
 
     public AppView(Player p, Farm f) {
-        this.ic = ic;
+        // this.ic = ic;
 
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension dim = tk.getScreenSize();

@@ -18,7 +18,7 @@ public class SimulationController extends Thread{
                 farm.oneTick();
             }
             try {
-                Thread.sleep(800);
+                Thread.sleep(1000);
             } catch (Exception e) {
                 
             }

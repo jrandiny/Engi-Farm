@@ -1,6 +1,5 @@
 package id.backendk3.engifarm.Product.SideProduct;
 
-// import java.util.LinkedList;
 import id.backendk3.engifarm.MyLinkedList;
 import id.backendk3.engifarm.Product.Product;
 import id.backendk3.engifarm.Product.SideProduct.SideProduct;
@@ -26,8 +25,8 @@ public class EggBenedict extends SideProduct{
     }
 
     /**
-     * Fungsi yang mengembalikan linkedlist produk yang berisi bahan pembuat EgBenedict
-     * @return LinkedList produk yang berisi bahan-bahan untuk membuat EgBenedict
+     * Fungsi yang mengembalikan MyLinkedList produk yang berisi bahan pembuat EgBenedict
+     * @return MyLinkedList produk yang berisi bahan-bahan untuk membuat EgBenedict
      */
     public MyLinkedList<Product> getRecipe(){
         MyLinkedList<Product> recipe = new MyLinkedList<Product>();

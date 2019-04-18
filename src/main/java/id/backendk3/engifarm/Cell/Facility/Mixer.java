@@ -1,10 +1,9 @@
 package id.backendk3.engifarm.Cell.Facility;
 
-import id.backendk3.engifarm.Cell.Facility.Facility;
 import java.awt.Color;
 import java.awt.Image;
-import java.io.File;
 import java.io.IOException;
+import id.backendk3.engifarm.Cell.Facility.Facility;
 
 import javax.imageio.ImageIO;
 

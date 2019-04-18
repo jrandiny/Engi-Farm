@@ -3,7 +3,7 @@ package id.backendk3.engifarm.View;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 
-import id.backendk3.engifarm.Tooltip;
+// import id.backendk3.engifarm.Tooltip;
 import id.backendk3.engifarm.Player;
 
 import javax.swing.*;

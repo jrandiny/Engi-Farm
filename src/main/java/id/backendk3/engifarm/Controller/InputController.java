@@ -1,12 +1,7 @@
 package id.backendk3.engifarm.Controller;
 
-// import java.util.ArrayList;
-// import java.util.Map;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
-import javax.swing.JOptionPane;
-
 import id.backendk3.engifarm.Player;
 import id.backendk3.engifarm.Concurrent;
 import id.backendk3.engifarm.Farm;
@@ -16,7 +11,6 @@ import id.backendk3.engifarm.Product.Product.ProductType;
 import id.backendk3.engifarm.Cell.Facility.*;
 import id.backendk3.engifarm.Cell.Land.*;
 import id.backendk3.engifarm.Tooltip;
-// import id.backendk3.engifarm.Product.FarmProduct.ChickenEgg;
 import id.backendk3.engifarm.OptionBox;
 
 public class InputController implements KeyListener {

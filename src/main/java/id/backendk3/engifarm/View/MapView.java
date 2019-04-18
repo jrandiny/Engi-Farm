@@ -6,7 +6,7 @@ import com.intellij.uiDesigner.core.GridLayoutManager;
 import id.backendk3.engifarm.Farm;
 import id.backendk3.engifarm.Player;
 import id.backendk3.engifarm.Cell.Cell;
-import id.backendk3.engifarm.Cell.Land.Coop;
+// import id.backendk3.engifarm.Cell.Land.Coop;
 import id.backendk3.engifarm.FarmAnimal.FarmAnimal;
 
 import javax.swing.*;
