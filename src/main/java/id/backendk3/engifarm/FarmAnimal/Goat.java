@@ -3,8 +3,9 @@ package id.backendk3.engifarm.FarmAnimal;
 import id.backendk3.engifarm.Product.*;
 import id.backendk3.engifarm.Product.FarmProduct.*;
 import id.backendk3.engifarm.Cell.Cell;
-import java.awt.Color;
 import java.awt.Image;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /**
  * Kelas riil turunan FarmAnimal
@@ -40,8 +41,7 @@ public class Goat extends FarmAnimal{
     /**
      * Mengembalikan produk dari Goat tergantung habitat
      * 
-     * @return Product berupa GoatMeat jika habitatnya Barn
-     * @return Product berupa GoatMilk jika habitatnya GrassLand
+     * @return Product berupa GoatMeat jika habitatnya Barn, GoatMilk jika habitatnya GrassLand
      * @see GoatMeat
      * @see GoatMilk
      */
@@ -59,10 +59,12 @@ public class Goat extends FarmAnimal{
     }
 
     /**
-    * Mengembalikan string render representasi Goat
-    * @return String render dari Goat
-    */
-    public String render(){
-        return "D";
+     * Mengembalikan sprite untuk Goat
+     * 
+     * @return Gambar sprite Goat
+     */
+    public Image getSprite() throws IOException{
+        Image image = ImageIO.read(getClass().getClassLoader().getResource("sprites/animal/goat.png"));
+        return image;
     }
 }

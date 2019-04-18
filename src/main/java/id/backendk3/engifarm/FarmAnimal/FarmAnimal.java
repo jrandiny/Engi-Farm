@@ -3,11 +3,15 @@ package id.backendk3.engifarm.FarmAnimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Arrays;
+import java.awt.Color;
+import java.awt.Image;
+import java.io.IOException;
 import id.backendk3.engifarm.Product.Product;
 import id.backendk3.engifarm.Cell.Cell;
 import id.backendk3.engifarm.Cell.Land.*;
 import id.backendk3.engifarm.Farm;
 import id.backendk3.engifarm.Sprite;
+import id.backendk3.engifarm.Timerable;
 
 /**
  * Kelas abstrak FarmAnimal
@@ -23,7 +27,7 @@ import id.backendk3.engifarm.Sprite;
  * @see Rabbit
  */
 
-public abstract class FarmAnimal{
+public abstract class FarmAnimal implements Timerable, Sprite{
     /** Waktu hewan hingga lapar */
     protected final int TIME_TO_HUNGRY;
     /** Waktu hewan hingga mati */
@@ -131,13 +135,6 @@ public abstract class FarmAnimal{
     public abstract String speak();
     
     /**
-     * Fungsi abstrak yang akan diimplementasikan hewan tertentu
-     * untuk mendapatkan representasi render hewan tersebut
-     * @return String render hewan tertentu
-     */
-    public abstract String render();
-    
-    /**
      * Setter status makan dari hewan
      * @param status Status makan
      */
@@ -180,12 +177,12 @@ public abstract class FarmAnimal{
         return deathStatus;
     }
     
-    // public void callback(){
-        //     if(eatStatus)
-    //         setEatStatus(false);
-    //     else 
-    //         setDeathStatus(true);
-    // }
+    public void callback(){
+            if(eatStatus)
+            setEatStatus(false);
+        else 
+            setDeathStatus(true);
+    }
     
     /**
      * Mengembalikan lokasi X
@@ -226,4 +223,21 @@ public abstract class FarmAnimal{
     public  void setHaveProduct(boolean flag){
         this.haveProduct = flag;
     }
+
+    /**
+     * Mengembalikan warna background untuk FarmAnimal
+     * 
+     * @return null karena mengikuti BG land yang ada
+     */
+    public Color getBGColor(){
+        // return Color.BLACK;
+        return null;
+    }
+
+    /**
+     * Mengembalikan sprite untuk FarmAnimal
+     * 
+     * @return Gambar sprite tergantung kelas turunannya
+     */
+    public abstract Image getSprite() throws IOException;
 }
