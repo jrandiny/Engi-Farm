@@ -1,34 +1,56 @@
 package id.backendk3.engifarm;
 
-// import java.util.LinkedList;
 import java.util.Observable;
 import java.util.LinkedHashSet;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.Arrays;
 import id.backendk3.engifarm.Cell.Cell;
 import id.backendk3.engifarm.Cell.Facility.*;
 import id.backendk3.engifarm.Cell.Land.*;
-// import id.backendk3.engifarm.Cell.Land.Land;
 import id.backendk3.engifarm.FarmAnimal.*;
 
+/**
+ * Kelas riil Farm turunan Observable
+ * 
+ * <p>Kelas Farm merupakan kelas yang menyimpan data peta permainan dan memanipulasinya
+ * 
+ * @author backendk3
+ * @see id.backendk3.engifarm.Cell.Cell
+ * @see id.backendk3.engifarm.Cell.Facility
+ * @see id.backendk3.engifarm.Cell.Land
+ * @see id.backendk3.engifarm.FarmAnimal.FarmAnimal
+ */
 public class Farm extends Observable{
+
+    /**
+     * Tipe-tipe perintah move yang mungkin
+     */
     public enum MoveType{
-        Up(0),Right(1),Down(2),Left(3),Center(4); 
+        /**Tipe perintah move yang bergerak ke atas */
+        Up(0),
+        /**Tipe perintah move yang bergerak ke kanan */
+        Right(1),
+        /**Tipe perintah move yang bergerak ke kiri */
+        Down(2),
+        /**Tipe perintah move yang bergerak ke bawah */
+        Left(3),
+        /**Tipe posisi yang menunjukan posisi player seblum bergerak */
+        Center(4); 
     
         private final int VALUE;
         private MoveType(int VALUE) {
             this.VALUE = VALUE;
         }
     
+        /**
+         * Fungsi yang mengembalikan nilai yang merepresentasikan pilihan tipe move
+         * @return nilai yang merepresentasikan pilihan tipe move
+         */
         public int getValue() {
             return VALUE;
         }
-    }
-
-    public void testObs(){
-        setChanged();
-        notifyObservers();
     }
 
     private final int WIDTH;
@@ -145,6 +167,11 @@ public class Farm extends Observable{
         return null;
     }
 
+    /**
+     * Konstruktor kelas Farm
+     * @param _WIDTH lebar peta
+     * @param _HEIGHT tinggi peta
+     */
     public Farm(int _WIDTH, int _HEIGHT){
         WIDTH=_WIDTH;
         HEIGHT=_HEIGHT;
@@ -198,18 +225,25 @@ public class Farm extends Observable{
         setFacility(1,Cell.CellType.WellType);
         setFacility(1,Cell.CellType.MixerType);
         // System.out.println("init facility");
-
+        
+        setChanged();
         notifyObservers();
     }
 
-    // public void setMap(LinkedList<LinkedList<Cell>> in){
-
-    // }
-
+    /**
+     * Fungsi yang mengembalikan peta
+     * @return peta
+     */
     public ArrayList<ArrayList<Cell>> getMap(){
         return map;
     }
 
+    /**
+     * Fungsi yang mengembalikan array yang berisi cell-cell di sekitar posisi player
+     * @param x Posisi X
+     * @param Y Posisi Y
+     * @return array yang berisi cell-cell di sekitar posisi player
+     */
     public Cell[] getSurrounding(int x, int y){
         Cell[] result = new Cell[5];
         if(y>0){ //up
@@ -242,65 +276,13 @@ public class Farm extends Observable{
         return result;
     }
 
-    // public Mixer getMixer(int x, int y){
-    //     boolean found=false;
-    //     Mixer result=null;
-    //     Iterator<Facility> iter=facilities.iterator();
-    //     while(iter.hasNext() && !found){
-    //         Facility temp=iter.next();
-    //         if(temp.getX()==x && temp.getY()==y && temp.getType()==Cell.CellType.MixerType){
-    //             found=true;
-    //             result=(Mixer) temp;
-    //         }
-    //     }
-    //     if(found){
-    //         return result;
-    //     }else{
-    //         throw new RuntimeException("No MixerFound");
-    //     }
-    // }
-
-    // public Truck getTruck(int x, int y){
-    //     boolean found=false;
-    //     Truck result=null;
-    //     Iterator<Facility> iter=facilities.iterator();
-    //     while(iter.hasNext() && !found){
-    //         Facility temp=iter.next();
-    //         if(temp.getX()==x && temp.getY()==y && temp.getType()==Cell.CellType.TruckType){
-    //             found=true;
-    //             result=(Mixer) temp;
-    //         }
-    //     }
-    //     if(found){
-    //         return result;
-    //     }else{
-    //         throw new RuntimeException("No MixerFound");
-    //     }
-    // }
-
-    // public Well getWell(int x, int y){
-    //     boolean found=false;
-    //     Mixer result=null;
-    //     Iterator<Facility> iter=facilities.iterator();
-    //     while(iter.hasNext() && !found){
-    //         Facility temp=iter.next();
-    //         if(temp.getX()==x && temp.getY()==y && temp.getType()==Cell.CellType.MixerType){
-    //             found=true;
-    //             result=(Mixer) temp;
-    //         }
-    //     }
-    //     if(found){
-    //         return result;
-    //     }else{
-    //         throw new RuntimeException("No MixerFound");
-    //     }
-    // }
-
-    // public FarmAnimal getFarmAnimal(int x, int y){}
-
-    // public FarmAnimal[] getSurroundAnimals(int x, int y){
-
-    // }
+    /**
+     * Fungsi yang mengembalikan objek Animal yang berada sesuai dengan perintah move yang diberikan
+     * @param x posisi X
+     * @param Y posisi Y
+     * @param direction perintah move
+     * @return Objek Animal jika ditemukan dan berada pada posisi yang sesuai dengan perintah move
+     */
     public FarmAnimal getAnimals(int x, int y, MoveType direction){
         Cell[] surr = getSurrounding(x, y);
         int[] deltaX = {0,1,0,-1};
@@ -314,10 +296,13 @@ public class Farm extends Observable{
 
     }
 
-    // public Facility[] getSurroundFacilities(int x, int y, Cell.CellType type){
-
-    // }
-
+    /**
+     * Fungsi yang mengembalikan objek Facility yang berada sesuai dengan perintah move yang diberikan
+     * @param x posisi X
+     * @param Y posisi Y
+     * @param direction perintah move
+     * @return Objek Facility jika ditemukan dan berada pada posisi yang sesuai dengan perintah move
+     */
     public Facility getFacilities(int x, int y, MoveType direction){
         Cell[] surr = getSurrounding(x, y);
         try{
@@ -327,26 +312,51 @@ public class Farm extends Observable{
         }
     }
 
+    /**
+     * Fungsi yang mengembalikan suatu list yang berisi hewan yang ada pada peta
+     * @return list yang berisi hewan yang ada pada peta
+     */
     public ArrayList<FarmAnimal> getFarmAnimals(){
         return farmAnimals;
     }
 
-    public void oneTick(){
-        for(int i=0;i<farmAnimals.size();i++){
-            if(farmAnimals.get(i).getDeathStatus()){
-                ((Land) (map.get(farmAnimals.get(i).getY()).get(farmAnimals.get(i).getX()))).unoccupy();
-                farmAnimals.remove(i);
-            } else {
-                boolean chance = Math.random() >= 0.6;
-                if(chance || !farmAnimals.get(i).getEatStatus()){
-                    Cell[] surr = getSurrounding(farmAnimals.get(i).getX(),farmAnimals.get(i).getY());
-                    farmAnimals.get(i).moveRandom(surr);
-                }
-                // farmAnimals[i].tick();
+    /**
+     * Method yang menghapus cell yang ditempati hewan yang sudah mati
+     */
+    public void cleanFarmAnimal(){
+        Iterator<FarmAnimal> it = farmAnimals.iterator();
+
+        while(it.hasNext()){
+            FarmAnimal el = it.next();
+            if(el.getDeathStatus()){
+                ((Land) (map.get(el.getY()).get(el.getX()))).unoccupy();
+                it.remove();
             }
         }
-        // for(int i=0;i<(int)truck.size();i++){
-        //     truck[i]->tick();
-        // }
+        setChanged();
+        notifyObservers();
+    }
+
+    /**Method pengecekan yang dilakukan per satu satuan tick*/
+    public void oneTick(){
+        for(FarmAnimal el : farmAnimals){
+            boolean chance = Math.random() >= 0.7;
+            if(chance || !el.getEatStatus()){
+                Cell[] surr = getSurrounding(el.getX(),el.getY());
+                el.moveRandom(surr);
+            }
+            el.tick();
+        }
+
+        for(ArrayList<Cell> row : map){
+            for(Cell el : row){
+                el.tick();
+            }
+        }
+
+        cleanFarmAnimal();
+
+        setChanged();
+        notifyObservers();
     }
 }
