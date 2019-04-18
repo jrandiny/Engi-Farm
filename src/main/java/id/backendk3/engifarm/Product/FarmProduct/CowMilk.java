@@ -4,7 +4,11 @@ import id.backendk3.engifarm.Product.FarmProduct.FarmProduct;
 
 /**
  * Kelas riil CowMilk turunan FarmProduct
- * CowMilk adalah Product yang dihasilkan oleh object animal Cow yang terletak pada GrassLand
+ * <p>CowMilk adalah Product yang dihasilkan oleh object animal Cow yang terletak pada GrassLand
+ * 
+ * @author backendk3
+ * @see FarmProduct
+ * @see id.backendk3.engifarm.Product Product
  */
 public class CowMilk extends FarmProduct{
 

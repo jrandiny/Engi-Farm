@@ -4,7 +4,11 @@ import id.backendk3.engifarm.Product.FarmProduct.FarmProduct;
 
 /**
  * Kelas riil GoatMeat turunan FarmProduct
- * GoatMeat adalah Product yang dihasilkan oleh object animal Goat yang terletak pada Barn
+ * <p>GoatMeat adalah Product yang dihasilkan oleh object animal Goat yang terletak pada Barn
+ * 
+ * @author backendk3
+ * @see FarmProduct
+ * @see id.backendk3.engifarm.Product Product
  */
 public class GoatMeat extends FarmProduct{
 

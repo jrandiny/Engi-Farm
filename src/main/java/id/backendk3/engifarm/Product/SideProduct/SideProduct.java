@@ -5,7 +5,11 @@ import java.util.LinkedList;
 
 /**
  * Kelas abstrak SideProduct turunan Product
- * SideProduct adalah produk hasil pengolahan dari 2 FarmProduct atau lebih
+ * <p>SideProduct adalah produk hasil pengolahan dari 2 FarmProduct atau lebih
+ * 
+ * @author backendk3
+ * @see SideProduct
+ * @see id.backendk3.engifarm.Product Product
  */
 public abstract class SideProduct extends Product{
 

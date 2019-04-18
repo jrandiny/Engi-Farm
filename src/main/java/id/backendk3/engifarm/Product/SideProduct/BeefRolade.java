@@ -8,7 +8,11 @@ import java.util.LinkedList;
 
 /**
  * Kelas riil BeefRolade turunan SideProduct 
- * BeefRolade dapat dibuat dari CowMeat dan ChickenEgg dari FarmProduct
+ * <p>BeefRolade dapat dibuat dari CowMeat dan ChickenEgg dari FarmProduct
+ * 
+ * @author backendk3
+ * @see SideProduct
+ * @see id.backendk3.engifarm.Product Product
  */
 public class BeefRolade extends SideProduct{
 

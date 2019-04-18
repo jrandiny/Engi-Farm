@@ -4,7 +4,11 @@ import id.backendk3.engifarm.Product.Product;
 
 /**
  * Kelas abstrak FarmProduct turunan Product
- * FarmProduct adalah Product yang dapat dihasilkan dari FarmAnimal
+ * <p>FarmProduct adalah Product yang dapat dihasilkan dari FarmAnimal
+ * 
+ * @author backendk3
+ * @see FarmProduct
+ * @see id.backendk3.engifarm.Product Product
  */
 public abstract class FarmProduct extends Product{
 

@@ -4,7 +4,11 @@ import id.backendk3.engifarm.Product.FarmProduct.FarmProduct;
 
 /**
  * Kelas riil RabbitMeat turunan FarmProduct
- * RabbitMeat adalah Product yang dihasilkan oleh object animal Rabbit
+ * <p>RabbitMeat adalah Product yang dihasilkan oleh object animal Rabbit
+ * 
+ * @author backendk3
+ * @see FarmProduct
+ * @see id.backendk3.engifarm.Product Product
  */
 public class RabbitMeat extends FarmProduct{
 

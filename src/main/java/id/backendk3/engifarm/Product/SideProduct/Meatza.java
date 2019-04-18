@@ -9,7 +9,11 @@ import java.util.LinkedList;
 
 /**
  * Kelas riil Meatza turunan SideProduct 
- * Meatza dapat dibuat dari GoatMeat, HorseMeat, dan RabbitMeat dari FarmProduct
+ * <p>Meatza dapat dibuat dari GoatMeat, HorseMeat, dan RabbitMeat dari FarmProduct
+ * 
+ * @author backendk3
+ * @see SideProduct
+ * @see id.backendk3.engifarm.Product Product
  */
 public class Meatza extends SideProduct{
     

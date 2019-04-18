@@ -4,7 +4,11 @@ import id.backendk3.engifarm.Product.FarmProduct.FarmProduct;
 
 /**
  * Kelas riil CowMeat turunan FarmProduct
- * CowMeat adalah Product yang dihasilkan oleh object animal Cow yang terletak pada Barn
+ * <p>CowMeat adalah Product yang dihasilkan oleh object animal Cow yang terletak pada Barn
+ * 
+ * @author backendk3
+ * @see FarmProduct
+ * @see id.backendk3.engifarm.Product Product
  */
 public class CowMeat extends FarmProduct{
     /**

@@ -4,7 +4,11 @@ import id.backendk3.engifarm.Product.FarmProduct.FarmProduct;
 
 /**
  * Kelas riil ChickenEgg turunan FarmProduct
- * ChickenEgg adalah Product yang dihasilkan oleh object animal Chicken
+ * <p>ChickenEgg adalah Product yang dihasilkan oleh object animal Chicken
+ * 
+ * @author backendk3
+ * @see FarmProduct
+ * @see id.backendk3.engifarm.Product Product
  */
 public class ChickenEgg extends FarmProduct{
 

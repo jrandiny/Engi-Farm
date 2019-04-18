@@ -9,7 +9,11 @@ import java.util.LinkedList;
 
 /**
  * Kelas riil EggBenedict turunan SideProduct 
- * EggBenedict dapat dibuat dari DuckEgg, GoatMilk, dan RabbirMeat dari FarmProduct
+ * <p>EggBenedict dapat dibuat dari DuckEgg, GoatMilk, dan RabbirMeat dari FarmProduct
+ * 
+ * @author backendk3
+ * @see SideProduct
+ * @see id.backendk3.engifarm.Product Product
  */
 public class EggBenedict extends SideProduct{
     

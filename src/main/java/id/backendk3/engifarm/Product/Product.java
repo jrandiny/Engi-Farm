@@ -2,21 +2,41 @@ package id.backendk3.engifarm.Product;
 
 /**
  * Kelas abstrak Product
- * Product adalah barang yang dihasilkan oleh animal yang memiliki nilai jual
+ * 
+ * <p>Product adalah barang yang dihasilkan oleh animal yang memiliki nilai jual
+ * Product dapat berupa FarmProduct, Product hasil dari FarmAnimal, atau SideProduct hasil dari pengolahan 2 atau lebih FarmProduct
+ * 
+ * @author backendk3
+ * @see id.backendk3.engifarm.Product.FarmProduct
+ * @see id.backendk3.engifarm.Product.SideProduct
  */
 public abstract class Product{
 
+    /**
+     * Tipe-tipe Product yang mungkin
+     */
     public enum ProductType{
+        /** Tipe {@link id.backendk3.engifarm.Product.SideProduct.BeefRolade} */
         BeefRoladeType(0),
+        /** Tipe {@link id.backendk3.engifarm.Product.SideProduct.EggBenedict} */
         EggBenedictType(1),
+        /** Tipe {@link id.backendk3.engifarm.Product.SideProduct.Meatza} */
         MeatzaType(2),
+        /** Tipe {@link id.backendk3.engifarm.Product.FarmProduct.ChickenEgg} */
         ChickenEggType(3),
+        /** Tipe {@link id.backendk3.engifarm.Product.FarmProduct.CowMeat} */
         CowMeatType(4),
+        /** Tipe {@link id.backendk3.engifarm.Product.FarmProduct.CowMilk} */
         CowMilkType(5),
+        /** Tipe {@link id.backendk3.engifarm.Product.FarmProduct.DuckEgg} */
         DuckEggType(6),
+        /** Tipe {@link id.backendk3.engifarm.Product.FarmProduct.GoatMeat} */
         GoatMeatType(7),
+        /** Tipe {@link id.backendk3.engifarm.Product.FarmProduct.GoatMilk} */
         GoatMilkType(8),
+        /** Tipe {@link id.backendk3.engifarm.Product.FarmProduct.HorseMeat} */
         HorseMeatType(9),
+        /** Tipe {@link id.backendk3.engifarm.Product.FarmProduct.RabbitMeat} */
         RabbitMeatType(10); 
     
         private final int VALUE;
