@@ -4,9 +4,7 @@ import java.awt.Color;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
-
 import id.backendk3.engifarm.Cell.Facility.Facility;
 
 /**
@@ -41,7 +39,7 @@ public class Truck extends Facility{
      * @throws IOException jika gambar tidak tersedia atau tidak dapat dibuka
      */
     public Image getSprite() throws IOException{
-        Image image = ImageIO.read(getClass().getClassLoader().getResource("sprites/facility.png"));
+        Image image = ImageIO.read(getClass().getClassLoader().getResource("sprites/facility/truck.png"));
         return image;
     }
     
@@ -64,6 +62,21 @@ public class Truck extends Facility{
      */
     public void use(int time){
         usable = false;
-        //setAndActivate(time);
+        setTimer(time);
+        setTimerActive(true);
+    }
+
+    /**
+     * Menyatakan truck sudah dapat dipakai kembali
+     * 
+     * <p>Setelah prosedur ini dipanggil, Truck dapat digunakan kembali
+     * 
+     * Method yang dipanggil jika timer untuk objek truk sudah habis
+     */
+    public void callback(){
+        if(!usable){
+            usable = true;
+            setTimerActive(false);
+        }
     }
 }

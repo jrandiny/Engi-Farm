@@ -1,9 +1,10 @@
 package id.backendk3.engifarm.Cell;
 
 import id.backendk3.engifarm.Sprite;
+import id.backendk3.engifarm.TimerObj;
 
 /**
- * Kelas abstrak Cell
+ * Kelas abstrak Cell turunan TimerObj
  * 
  * <p>Kelas ini merepresentasikan Cell yaitu sebuah kotak pada peta.
  * Cell dapat berupa tanah atau fasilitas yang direpresentasikan dengan kelas
@@ -13,7 +14,7 @@ import id.backendk3.engifarm.Sprite;
  * @see id.backendk3.engifarm.Cell.Facility Facility
  * @see id.backendk3.engifarm.Cell.Land Land
  */
-public abstract class Cell implements Comparable<Cell>, Sprite{
+public abstract class Cell extends TimerObj implements Comparable<Cell>, Sprite{
     /**
      * Tipe-tipe Cell yang mungkin
      */
@@ -105,5 +106,9 @@ public abstract class Cell implements Comparable<Cell>, Sprite{
         }else{
             return 0;
         }
+    }
+
+    public void callback(){
+        
     }
 }

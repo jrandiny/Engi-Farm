@@ -15,6 +15,7 @@ import id.backendk3.engifarm.Cell.Cell;
  * @see Barn
  */
 public abstract class Land extends Cell{
+    private int timeToDry;
     private boolean grass;
 
     /**
@@ -28,6 +29,14 @@ public abstract class Land extends Cell{
         super(_x,_y,_type);
         grass = true;
         occupied = false;
+        timeToDry = (int) (Math.random()*120 + 20);
+        setTimer(timeToDry);
+        setTimerActive(true);
+    }
+    
+    @Override
+    public void callback(){
+        removeGrass();
     }
 
     /**
@@ -65,6 +74,7 @@ public abstract class Land extends Cell{
      */
     public void removeGrass(){
         grass = false;
+        setTimerActive(false);
     }
 
     /**
@@ -73,6 +83,8 @@ public abstract class Land extends Cell{
      */
     public void addGrass(){
         grass = true;
+        setTimer(timeToDry);
+        setTimerActive(true);
     }
 
 
