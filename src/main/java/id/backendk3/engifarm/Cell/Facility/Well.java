@@ -12,8 +12,8 @@ import id.backendk3.engifarm.Cell.Facility.Facility;
 /**
  * Kelas riil turuan Facility
  * 
- * <p>Kelas untuk salah satu tipe {@link Facility}.
- * Tipe fasiltas ini berguna untuk {@link Player} mengambil air.
+ * <p>Kelas untuk salah satu tipe {@link id.backendk3.engifarm.Cell.Facility Facility}.
+ * Tipe fasiltas ini berguna untuk {@link id.backendk3.engifarm.Player} mengambil air.
  * 
  * @author backendk3
  * @see Facility
@@ -36,12 +36,12 @@ public class Well extends Facility{
      * @throws IOException jika gambar tidak tersedia atau tidak dapat dibuka
      */
     public Image getSprite() throws IOException{
-        Image image = ImageIO.read(new File("image.png"));
+        Image image = ImageIO.read(getClass().getClassLoader().getResource("sprites/facility.png"));
         return image;
     }
 
     /**
-     * Mengembalikan warna background untuk tile {@link Farm}
+     * Mengembalikan warna background untuk tile {@link id.backendk3.engifarm.Farm}
      * 
      * @return Warna background tile Well
      */

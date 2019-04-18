@@ -39,7 +39,7 @@ public class Barn extends Land{
     }
 
     /**
-     * Mengembalikan warna background untuk tile {@link Farm}
+     * Mengembalikan warna background untuk tile {@link id.backendk3.engifarm.Farm}
      * 
      * @return Warna background tile Barn
      */

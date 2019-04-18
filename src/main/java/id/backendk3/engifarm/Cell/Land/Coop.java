@@ -2,7 +2,6 @@ package id.backendk3.engifarm.Cell.Land;
 
 import java.awt.Color;
 import java.awt.Image;
-import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -40,7 +39,7 @@ public class Coop extends Land{
     }
 
     /**
-     * Mengembalikan warna background untuk tile {@link Farm}
+     * Mengembalikan warna background untuk tile {@link id.backendk3.engifarm.Farm}
      * 
      * @return Warna background tile Coop
      */

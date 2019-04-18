@@ -7,28 +7,28 @@ import id.backendk3.engifarm.Sprite;
  * 
  * <p>Kelas ini merepresentasikan Cell yaitu sebuah kotak pada peta.
  * Cell dapat berupa tanah atau fasilitas yang direpresentasikan dengan kelas
- * {@link Land} dan {@link Facility}.
+ * {@link id.backendk3.engifarm.Cell.Land Land} dan {@link id.backendk3.engifarm.Cell.Facility Facility}.
  * 
  * @author backendk3
- * @see Facility
- * @see Land
+ * @see id.backendk3.engifarm.Cell.Facility Facility
+ * @see id.backendk3.engifarm.Cell.Land Land
  */
 public abstract class Cell implements Comparable<Cell>, Sprite{
     /**
      * Tipe-tipe Cell yang mungkin
      */
     public enum CellType{
-        /** Tipe {@link Mixer} */
+        /** Tipe {@link id.backendk3.engifarm.Cell.Facility.Mixer} */
         MixerType, 
-        /** Tipe {@link Truck} */
+        /** Tipe {@link id.backendk3.engifarm.Cell.Facility.Truck} */
         TruckType,
-        /** Tipe {@link Well} */ 
+        /** Tipe {@link id.backendk3.engifarm.Cell.Facility.Well} */ 
         WellType, 
-        /** Tipe {@link Barn} */
+        /** Tipe {@link id.backendk3.engifarm.Cell.Land.Barn} */
         BarnType, 
-        /** Tipe {@link Coop} */
+        /** Tipe {@link id.backendk3.engifarm.Cell.Land.Coop} */
         CoopType, 
-        /** Tipe {@link GrassLand} */
+        /** Tipe {@link id.backendk3.engifarm.Cell.Land.GrassLand} */
         GrassLandType 
     }
 
@@ -62,7 +62,7 @@ public abstract class Cell implements Comparable<Cell>, Sprite{
 
     /**
      * Mengecek apakah sebuah Cell terisi
-     * @return true jika terisi
+     * @return True jika terisi
      */
     public boolean isOccupied(){
         return occupied;

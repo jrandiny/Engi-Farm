@@ -12,9 +12,9 @@ import id.backendk3.engifarm.Cell.Facility.Facility;
 /**
  * Kelas riil turuan Facility
  * 
- * <p>Kelas untuk salah satu tipe {@link Facility}.
- * Tipe fasiltas ini berguna untuk menjual berbagai {@link Product}
- * yang terdapat pada {@link Player} untuk uang.
+ * <p>Kelas untuk salah satu tipe {@link id.backendk3.engifarm.Cell.Facility Facility}.
+ * Tipe fasiltas ini berguna untuk menjual berbagai {@link id.backendk3.engifarm.Product}
+ * yang terdapat pada {@link id.backendk3.engifarm.Player} untuk uang.
  * 
  * <p>Setelah digunakan, Truck tidak dapat langsung digunakan kembali.
  * Harus menunggu selama beberapa waktu terlebih dahulu
@@ -41,12 +41,12 @@ public class Truck extends Facility{
      * @throws IOException jika gambar tidak tersedia atau tidak dapat dibuka
      */
     public Image getSprite() throws IOException{
-        Image image = ImageIO.read(new File("image.png"));
+        Image image = ImageIO.read(getClass().getClassLoader().getResource("sprites/facility.png"));
         return image;
     }
     
     /**
-     * Mengembalikan warna background untuk tile {@link Farm}
+     * Mengembalikan warna background untuk tile {@link id.backendk3.engifarm.Farm}
      * 
      * @return Warna background tile Truck
      */

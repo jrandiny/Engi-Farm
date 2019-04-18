@@ -11,9 +11,9 @@ import javax.imageio.ImageIO;
 /**
  * Kelas riil turuan Facility
  * 
- * <p>Kelas untuk salah satu tipe {@link Facility}.
+ * <p>Kelas untuk salah satu tipe {@link id.backendk3.engifarm.Cell.Facility Facility}.
  * Tipe fasiltas ini berguna untuk mencampurkan bahan-bahan
- * untuk menghasilkan suatu {@link SideProduct}
+ * untuk menghasilkan suatu {@link id.backendk3.engifarm.Product.SideProduct}
  * 
  * @author backendk3
  * @see Facility
@@ -36,12 +36,12 @@ public class Mixer extends Facility{
      * @throws IOException jika gambar tidak tersedia atau tidak dapat dibuka
      */
     public Image getSprite() throws IOException {
-        Image image = ImageIO.read(new File("image.png"));
+        Image image = ImageIO.read(getClass().getClassLoader().getResource("sprites/facility.png"));
         return image;
     }
 
     /**
-     * Mengembalikan warna background untuk tile {@link Farm}
+     * Mengembalikan warna background untuk tile {@link id.backendk3.engifarm.Farm}
      * 
      * @return Warna background tile Mixer
      */
