@@ -14,10 +14,13 @@ import java.util.Observable;
 
 public class InventoryView extends JScrollPane implements Observer {
 
-    private JList inventoryList;
+    private JList<String> inventoryList;
+    private DefaultListModel<String> listModel;
 
     public InventoryView() {
-        inventoryList = new JList();
+        listModel = new DefaultListModel<>();
+        inventoryList = new JList<String>(listModel);
+
         this.setViewportView(inventoryList);
     }
 
@@ -25,12 +28,10 @@ public class InventoryView extends JScrollPane implements Observer {
         Player p = (Player) observable;
         Map<Product,Integer> bag = p.getBag();
 
-        ArrayList<String> text = new ArrayList<String>();
+        listModel.clear();
         for(Map.Entry<Product, Integer> entry : bag.entrySet() ){
-            text.add(entry.getValue().toString()+" - "+entry.getKey().render());
+            listModel.addElement(entry.getValue().toString()+" - "+entry.getKey().render());
         }  
-
-        inventoryList = new JList(text.toArray());
 
         this.setViewportView(inventoryList);
 
