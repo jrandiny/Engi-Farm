@@ -1,7 +1,8 @@
 package id.backendk3.engifarm.Product.SideProduct;
 
+// import java.util.LinkedList;
+import id.backendk3.engifarm.MyLinkedList;
 import id.backendk3.engifarm.Product.Product;
-import java.util.LinkedList;
 
 /**
  * Kelas abstrak SideProduct turunan Product
@@ -26,5 +27,6 @@ public abstract class SideProduct extends Product{
      * Fungsi abstrak yang mengembalikan linkedlist produk yang berisi bahan-bahan pembentuk SideProduct
      * @return LinkedList dari produk yang berisi bahan-bahan pembentuk SideProduct
      */
-    public abstract LinkedList<Product> getRecipe();
+    // public abstract LinkedList<Product> getRecipe();
+    public abstract MyLinkedList<Product> getRecipe();
 }
