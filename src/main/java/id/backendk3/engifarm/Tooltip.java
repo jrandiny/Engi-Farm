@@ -2,11 +2,16 @@ package id.backendk3.engifarm;
 
 import java.util.Observable;
 
-public class Notifier extends Observable{
+/**
+ * Kelas riil Tooltip turunan Obeservable
+ * 
+ * @author backendk3
+ */
+public class Tooltip extends Observable{
     private String Msg;
-    private Boolean exit;
+    private boolean exit;
 
-    public Notifier(){
+    public Tooltip(){
         Msg = "";
         exit = false;
     }
@@ -14,7 +19,7 @@ public class Notifier extends Observable{
         return Msg;
     }
 
-    public Boolean getExit(){
+    public boolean getExit(){
         return exit;
     }
 
@@ -24,7 +29,7 @@ public class Notifier extends Observable{
         notifyObservers();
     }
 
-    public void setExit(Boolean flag){
+    public void setExit(boolean flag){
         this.exit = flag;
     }
 }
