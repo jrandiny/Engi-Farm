@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import id.backendk3.engifarm.Farm.MoveType;
 import id.backendk3.engifarm.Cell.Cell;
 import id.backendk3.engifarm.Cell.Land.*;
@@ -15,12 +18,6 @@ import id.backendk3.engifarm.Product.Product;
 
 public class PlayerTest 
 {
-
-    @Test
-    public void testRender(){
-        Player p = new Player(0,0,0,0,MoveType.Up);
-        assertEquals("👨",p.render(),"Wrong render string");
-    }
     
     @Test
     public void testConstructor(){
@@ -35,33 +32,34 @@ public class PlayerTest
     public void testMove(){
         Player p = new Player(0,0,5,5,MoveType.Up);
         Farm map = new Farm(10,10);
-        Cell[] playerSurr = map.getSurrounding(p.getX(),p.getY());
+        Cell[] surr = map.getSurrounding(p.getX(),p.getY());
     
         int posX = p.getX();
         int posY = p.getY();
     
         int[] dirX = {0,1,0,-1};
         int[] dirY = {-1,0,1,0};
-        MoveType[] move = {MoveType.Up,MoveType.Right,MoveType.Down,MoveType.Left};
-    
-        for(int i=0;i<4;i++){
-            if(!playerSurr[i].isOccupied()){
-                if(p.getDirection()!=move[i]){
-                    p.move(move[i],playerSurr);
-                }
-                p.move(move[i],playerSurr);
-                posX += dirX[i];
-                posY += dirY[i];
+        ArrayList<MoveType> move = new ArrayList<>( Arrays.asList(
+            MoveType.Up,MoveType.Right,MoveType.Down,MoveType.Left));
+        Collections.shuffle(move);
+        MoveType arah = move.get(0);
+
+        if(surr[arah.getValue()].isOccupied()){
+            if(p.getDirection()==arah){
+                assertThrows(RuntimeException.class,()->p.move(arah,surr),"Wrong move");
             } else {
-                if(p.getDirection()!=move[i]){
-                    p.move(move[i],playerSurr);
-                }
-                int j = i;
-                assertThrows(RuntimeException.class,()->p.move(move[j],playerSurr),"Wrong move");
+                p.move(arah, surr);
             }
-            assertEquals(posX,p.getX(),"Wrong position X");
-            assertEquals(posY,p.getY(),"Wrong position Y");
+            assertEquals(posX, p.getX(),"Wrong position X");
+            assertEquals(posY, p.getY(),"Wrong position Y");
+        } else {
+            p.move(arah, surr);
+            posX += dirX[arah.getValue()];
+            posY += dirY[arah.getValue()];
+            assertEquals(posX, p.getX(),"Wrong position X");
+            assertEquals(posY, p.getY(),"Wrong position Y");
         }
+        assertEquals(arah, p.getDirection(),"Wrong player direction");
     }
     
     @Test
