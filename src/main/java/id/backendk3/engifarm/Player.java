@@ -388,5 +388,13 @@ public class Player extends Observable implements Sprite {
         return ImageIO.read(getClass().getClassLoader().getResource("sprites/player/" + direction.getValue() + ".png"));
     }
 
+    /**
+     * Memberitahu semua observer tentang perubahan
+     */
+    public void forceNotifyOberservers(){
+        setChanged();
+        notifyObservers();
+    }
+
 
 }

@@ -40,6 +40,8 @@ public class App {
         player.addObserver(inventoryView);
         player.addObserver(mapView);
 
+        player.forceNotifyOberservers();
+
         optionBox.addObserver(myAppView);
 
         // Connect view with controller
