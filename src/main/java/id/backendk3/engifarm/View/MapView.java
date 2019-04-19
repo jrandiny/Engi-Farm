@@ -14,8 +14,6 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-// import id.backendk3.engifarm.Cell.Land.Coop;
-
 public class MapView extends JPanel implements Observer {
     final int ANIMAL_PADDING = 5;
     final int GRASS_PADDING = 15;

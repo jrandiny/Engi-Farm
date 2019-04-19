@@ -89,8 +89,6 @@ public class Farm extends Observable {
                     default:
                         break;
                 }
-                // Land temp = (Land) (map.get(j).get(i));
-                // temp.addGrass();
             }
         }
     }
@@ -99,9 +97,7 @@ public class Farm extends Observable {
         int y = map.size();
         int x = map.get(0).size();
         int count = 0;
-        // System.out.println("in");
         while (count < jumlah) {
-            // System.out.println(count);
             int i = (int) (Math.random() * x);
             int j = (int) (Math.random() * y);
             if (!map.get(j).get(i).isOccupied()) {
@@ -238,11 +234,10 @@ public class Farm extends Observable {
             luas = (WIDTH - x - 1) * (HEIGHT);
             randomAnimalMap(x + 1, 0, WIDTH - 1, HEIGHT - 1, urutan.get(2), (int) (Math.random() * (luas / DIVIDER) + MIN_ANIMAL));
         }
-        // System.out.println("init cell");
+        
         setFacility(1, Cell.CellType.TruckType);
         setFacility(1, Cell.CellType.WellType);
         setFacility(1, Cell.CellType.MixerType);
-        // System.out.println("init facility");
 
         setChanged();
         notifyObservers();

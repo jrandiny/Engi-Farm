@@ -9,8 +9,6 @@ import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
 
-// import id.backendk3.engifarm.Tooltip;
-
 public class MoneyView extends JPanel implements Observer {
 
     private JLabel moneyLabel;

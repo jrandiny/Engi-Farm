@@ -376,7 +376,6 @@ public class Player extends Observable implements Sprite {
      * @return null karena mengikuti BG land yang ada
      */
     public Color getBGColor() {
-        // return Color.BLACK;
         return null;
     }
 

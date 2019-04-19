@@ -12,8 +12,6 @@ import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
 
-// import java.awt.event.KeyListener;
-
 public class AppView extends JFrame implements Observer {
     public static final int SIDEBAR_SIZE = 300;
 
@@ -25,8 +23,6 @@ public class AppView extends JFrame implements Observer {
     private InputController ic;
 
     public AppView(Player p, Farm f) {
-        // this.ic = ic;
-
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension dim = tk.getScreenSize();
         this.setSize(dim.width / 2, dim.height / 2);

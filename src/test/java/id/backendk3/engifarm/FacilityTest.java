@@ -50,15 +50,4 @@ public class FacilityTest {
         d.interact(b);
         assertFalse(b.isUsable(), "Truck must be unable to use");
     }
-
-    @Test
-    public void testRender() {
-        Mixer a = new Mixer(0, 0);
-        Truck b = new Truck(1, 1);
-        Well c = new Well(2, 2);
-
-        // assertEquals("\u001B[30m" + "\u001B[47m" + "M" +"\u001B[0m", a.render(), "Mixer Render Failed");
-        // assertEquals("\u001B[30m" + "\u001B[47m" + "T" +"\u001B[0m", b.render(), "Truck Render Failed");
-        // assertEquals("\u001B[30m" + "\u001B[47m" + "W" +"\u001B[0m", c.render(), "Well Render Failed");
-    }
 }

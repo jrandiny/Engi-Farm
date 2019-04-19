@@ -72,8 +72,6 @@ public class InputController implements KeyListener {
                     p.move(Farm.MoveType.Left, surr);
                 } else if (e.getKeyChar() == 'l') {
                     p.grow((Land) (map.getMap().get(p.getY()).get(p.getX())));
-                    // } else if(input.equals("h")){
-                    //     printHelp();
                 } else if (e.getKeyChar() == 'k' || e.getKeyChar() == 'i' || e.getKeyChar() == 'j') {
                     FarmAnimal animal = map.getAnimals(p.getX(), p.getY(), p.getDirection());
                     if (animal != null) {
