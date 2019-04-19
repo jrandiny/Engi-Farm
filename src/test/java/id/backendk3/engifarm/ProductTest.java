@@ -1,12 +1,14 @@
 package id.backendk3.engifarm;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import id.backendk3.engifarm.Product.FarmProduct.*;
+import id.backendk3.engifarm.Product.Product;
+import id.backendk3.engifarm.Product.SideProduct.BeefRolade;
+import id.backendk3.engifarm.Product.SideProduct.EggBenedict;
+import id.backendk3.engifarm.Product.SideProduct.Meatza;
 import org.junit.jupiter.api.Test;
 
-import id.backendk3.engifarm.Product.*;
-import id.backendk3.engifarm.Product.FarmProduct.*;
-import id.backendk3.engifarm.Product.SideProduct.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ProductTest
 {

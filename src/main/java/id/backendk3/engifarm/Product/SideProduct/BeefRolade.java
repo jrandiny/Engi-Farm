@@ -1,10 +1,9 @@
 package id.backendk3.engifarm.Product.SideProduct;
 
 import id.backendk3.engifarm.MyLinkedList;
-import id.backendk3.engifarm.Product.Product;
-import id.backendk3.engifarm.Product.SideProduct.SideProduct;
 import id.backendk3.engifarm.Product.FarmProduct.ChickenEgg;
 import id.backendk3.engifarm.Product.FarmProduct.CowMeat;
+import id.backendk3.engifarm.Product.Product;
 
 /**
  * Kelas riil BeefRolade turunan SideProduct 

@@ -1,11 +1,10 @@
 package id.backendk3.engifarm.Product.SideProduct;
 
 import id.backendk3.engifarm.MyLinkedList;
-import id.backendk3.engifarm.Product.Product;
-import id.backendk3.engifarm.Product.SideProduct.SideProduct;
 import id.backendk3.engifarm.Product.FarmProduct.DuckEgg;
 import id.backendk3.engifarm.Product.FarmProduct.GoatMilk;
 import id.backendk3.engifarm.Product.FarmProduct.RabbitMeat;
+import id.backendk3.engifarm.Product.Product;
 
 /**
  * Kelas riil EggBenedict turunan SideProduct 

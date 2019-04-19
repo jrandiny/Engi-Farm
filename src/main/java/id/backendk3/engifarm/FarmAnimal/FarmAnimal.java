@@ -1,17 +1,17 @@
 package id.backendk3.engifarm.FarmAnimal;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Arrays;
-import java.awt.Color;
-import java.awt.Image;
-import java.io.IOException;
-import id.backendk3.engifarm.Product.Product;
 import id.backendk3.engifarm.Cell.Cell;
-import id.backendk3.engifarm.Cell.Land.*;
+import id.backendk3.engifarm.Cell.Land.Land;
 import id.backendk3.engifarm.Farm;
+import id.backendk3.engifarm.Product.Product;
 import id.backendk3.engifarm.Sprite;
 import id.backendk3.engifarm.TimerObj;
+
+import java.awt.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * Kelas abstrak FarmAnimal turunan TimerObj

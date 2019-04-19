@@ -1,7 +1,5 @@
 package id.backendk3.engifarm.Product.FarmProduct;
 
-import id.backendk3.engifarm.Product.FarmProduct.FarmProduct;
-
 /**
  * Kelas riil DuckEgg turunan FarmProduct
  * <p>DuckEgg adalah Product yang dihasilkan oleh object animal Duck

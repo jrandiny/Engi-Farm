@@ -1,7 +1,5 @@
 package id.backendk3.engifarm.Product.FarmProduct;
 
-import id.backendk3.engifarm.Product.FarmProduct.FarmProduct;
-
 /**
  * Kelas riil CowMeat turunan FarmProduct
  * <p>CowMeat adalah Product yang dihasilkan oleh object animal Cow yang terletak pada Barn

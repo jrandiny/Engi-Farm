@@ -1,7 +1,5 @@
 package id.backendk3.engifarm.Product.FarmProduct;
 
-import id.backendk3.engifarm.Product.FarmProduct.FarmProduct;
-
 /**
  * Kelas riil CowMilk turunan FarmProduct
  * <p>CowMilk adalah Product yang dihasilkan oleh object animal Cow yang terletak pada GrassLand

@@ -1,7 +1,6 @@
 package id.backendk3.engifarm;
 
-import java.awt.Color;
-import java.awt.Image;
+import java.awt.*;
 import java.io.IOException;
 
 public interface Sprite{

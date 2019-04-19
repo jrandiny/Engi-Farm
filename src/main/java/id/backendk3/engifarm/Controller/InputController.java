@@ -1,17 +1,16 @@
 package id.backendk3.engifarm.Controller;
 
+import id.backendk3.engifarm.Cell.Cell;
+import id.backendk3.engifarm.Cell.Facility.Facility;
+import id.backendk3.engifarm.Cell.Facility.Truck;
+import id.backendk3.engifarm.Cell.Facility.Well;
+import id.backendk3.engifarm.Cell.Land.Land;
+import id.backendk3.engifarm.*;
+import id.backendk3.engifarm.FarmAnimal.FarmAnimal;
+import id.backendk3.engifarm.Product.Product.ProductType;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import id.backendk3.engifarm.Player;
-import id.backendk3.engifarm.Concurrent;
-import id.backendk3.engifarm.Farm;
-import id.backendk3.engifarm.Cell.Cell;
-import id.backendk3.engifarm.FarmAnimal.*;
-import id.backendk3.engifarm.Product.Product.ProductType;
-import id.backendk3.engifarm.Cell.Facility.*;
-import id.backendk3.engifarm.Cell.Land.*;
-import id.backendk3.engifarm.Tooltip;
-import id.backendk3.engifarm.OptionBox;
 
 public class InputController implements KeyListener {
 

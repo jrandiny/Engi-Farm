@@ -2,14 +2,14 @@ package id.backendk3.engifarm.View;
 
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
-
-// import id.backendk3.engifarm.Tooltip;
 import id.backendk3.engifarm.Player;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Observer;
 import java.util.Observable;
+import java.util.Observer;
+
+// import id.backendk3.engifarm.Tooltip;
 
 public class MoneyView extends JPanel implements Observer {
 

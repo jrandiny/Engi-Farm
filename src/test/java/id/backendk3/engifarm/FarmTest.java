@@ -1,12 +1,12 @@
 package id.backendk3.engifarm;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import id.backendk3.engifarm.Cell.Facility.Mixer;
+import id.backendk3.engifarm.Cell.Facility.Truck;
+import id.backendk3.engifarm.Cell.Facility.Well;
 import org.junit.jupiter.api.Test;
 
-import id.backendk3.engifarm.Cell.*;
-import id.backendk3.engifarm.Cell.Facility.*;
-import id.backendk3.engifarm.Farm.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FarmTest
 {

@@ -1,7 +1,5 @@
 package id.backendk3.engifarm.Product.FarmProduct;
 
-import id.backendk3.engifarm.Product.FarmProduct.FarmProduct;
-
 /**
  * Kelas riil RabbitMeat turunan FarmProduct
  * <p>RabbitMeat adalah Product yang dihasilkan oleh object animal Rabbit

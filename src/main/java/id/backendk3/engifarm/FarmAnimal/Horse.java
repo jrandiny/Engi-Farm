@@ -1,11 +1,12 @@
 package id.backendk3.engifarm.FarmAnimal;
 
-import id.backendk3.engifarm.Product.*;
-import id.backendk3.engifarm.Product.FarmProduct.*;
 import id.backendk3.engifarm.Cell.Cell;
-import java.awt.Image;
-import java.io.IOException;
+import id.backendk3.engifarm.Product.FarmProduct.HorseMeat;
+import id.backendk3.engifarm.Product.Product;
+
 import javax.imageio.ImageIO;
+import java.awt.*;
+import java.io.IOException;
 
 /**
  * Kelas riil turunan FarmAnimal

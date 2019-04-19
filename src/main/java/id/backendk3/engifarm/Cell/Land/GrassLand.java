@@ -1,9 +1,8 @@
 package id.backendk3.engifarm.Cell.Land;
 
-import java.awt.Color;
-import java.awt.Image;
-import java.io.IOException;
 import javax.imageio.ImageIO;
+import java.awt.*;
+import java.io.IOException;
 
 /**
  * Kelas riil turuan Land

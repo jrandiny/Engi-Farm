@@ -1,20 +1,22 @@
 package id.backendk3.engifarm;
 
+import id.backendk3.engifarm.Cell.Cell;
+import id.backendk3.engifarm.Cell.Facility.Truck;
+import id.backendk3.engifarm.Cell.Facility.Well;
+import id.backendk3.engifarm.Cell.Land.Land;
+import id.backendk3.engifarm.FarmAnimal.FarmAnimal;
+import id.backendk3.engifarm.Product.Product;
+import id.backendk3.engifarm.Product.SideProduct.BeefRolade;
+import id.backendk3.engifarm.Product.SideProduct.EggBenedict;
+import id.backendk3.engifarm.Product.SideProduct.Meatza;
+import id.backendk3.engifarm.Product.SideProduct.SideProduct;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Observable;
-import java.util.HashMap;
-import java.lang.RuntimeException;
-import java.awt.Color;
-import java.awt.Image;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import id.backendk3.engifarm.Farm;
-import id.backendk3.engifarm.Product.Product;
-import id.backendk3.engifarm.Product.SideProduct.*;
-import id.backendk3.engifarm.Cell.Cell;
-import id.backendk3.engifarm.Cell.Land.Land;
-import id.backendk3.engifarm.Cell.Facility.*;
-import id.backendk3.engifarm.FarmAnimal.FarmAnimal;
 
 /**
  * Kelas riil

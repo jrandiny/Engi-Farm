@@ -1,7 +1,5 @@
 package id.backendk3.engifarm.Product.FarmProduct;
 
-import id.backendk3.engifarm.Product.FarmProduct.FarmProduct;
-
 /**
  * Kelas riil GoatMeat turunan FarmProduct
  * <p>GoatMeat adalah Product yang dihasilkan oleh object animal Goat yang terletak pada Barn

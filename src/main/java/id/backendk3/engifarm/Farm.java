@@ -1,15 +1,17 @@
 package id.backendk3.engifarm;
 
-import java.util.Observable;
-import java.util.LinkedHashSet;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.Arrays;
 import id.backendk3.engifarm.Cell.Cell;
-import id.backendk3.engifarm.Cell.Facility.*;
-import id.backendk3.engifarm.Cell.Land.*;
+import id.backendk3.engifarm.Cell.Facility.Facility;
+import id.backendk3.engifarm.Cell.Facility.Mixer;
+import id.backendk3.engifarm.Cell.Facility.Truck;
+import id.backendk3.engifarm.Cell.Facility.Well;
+import id.backendk3.engifarm.Cell.Land.Barn;
+import id.backendk3.engifarm.Cell.Land.Coop;
+import id.backendk3.engifarm.Cell.Land.GrassLand;
+import id.backendk3.engifarm.Cell.Land.Land;
 import id.backendk3.engifarm.FarmAnimal.*;
+
+import java.util.*;
 
 /**
  * Kelas riil Farm turunan Observable

@@ -2,17 +2,17 @@ package id.backendk3.engifarm.View;
 
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
-
+import id.backendk3.engifarm.Controller.InputController;
 import id.backendk3.engifarm.Farm;
 import id.backendk3.engifarm.OptionBox;
 import id.backendk3.engifarm.Player;
-import id.backendk3.engifarm.Controller.InputController;
 
 import javax.swing.*;
 import java.awt.*;
-// import java.awt.event.KeyListener;
-import java.util.Observer;
 import java.util.Observable;
+import java.util.Observer;
+
+// import java.awt.event.KeyListener;
 
 public class AppView extends JFrame implements Observer {
     public static final int SIDEBAR_SIZE = 300;

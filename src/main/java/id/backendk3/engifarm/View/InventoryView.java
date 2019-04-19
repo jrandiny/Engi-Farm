@@ -7,10 +7,11 @@ import id.backendk3.engifarm.Player;
 import id.backendk3.engifarm.Product.Product;
 
 import javax.swing.*;
-import java.util.Observer;
-// import java.util.ArrayList;
 import java.util.Map;
 import java.util.Observable;
+import java.util.Observer;
+
+// import java.util.ArrayList;
 
 public class InventoryView extends JScrollPane implements Observer {
 

@@ -1,10 +1,8 @@
 package id.backendk3.engifarm.Cell.Facility;
 
-import java.awt.Color;
-import java.awt.Image;
-import java.io.IOException;
 import javax.imageio.ImageIO;
-import id.backendk3.engifarm.Cell.Facility.Facility;
+import java.awt.*;
+import java.io.IOException;
 
 /**
  * Kelas riil turuan Facility

@@ -1,16 +1,12 @@
 package id.backendk3.engifarm;
 
-import java.util.ArrayList;
-import id.backendk3.engifarm.View.AppView;
-import id.backendk3.engifarm.View.InventoryView;
-import id.backendk3.engifarm.View.MapView;
-import id.backendk3.engifarm.View.MoneyView;
-import id.backendk3.engifarm.View.TooltipView;
-import id.backendk3.engifarm.View.WaterView;
-import id.backendk3.engifarm.Cell.*;
-import id.backendk3.engifarm.Cell.Land.*;
+import id.backendk3.engifarm.Cell.Cell;
+import id.backendk3.engifarm.Cell.Land.Land;
 import id.backendk3.engifarm.Controller.InputController;
 import id.backendk3.engifarm.Controller.SimulationController;
+import id.backendk3.engifarm.View.*;
+
+import java.util.ArrayList;
 
 /**
  * Kelas utama permainan Engi's Farm

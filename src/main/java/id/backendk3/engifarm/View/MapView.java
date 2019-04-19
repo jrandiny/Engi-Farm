@@ -2,19 +2,19 @@ package id.backendk3.engifarm.View;
 
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
-
-import id.backendk3.engifarm.Farm;
-import id.backendk3.engifarm.Player;
 import id.backendk3.engifarm.Cell.Cell;
-// import id.backendk3.engifarm.Cell.Land.Coop;
+import id.backendk3.engifarm.Farm;
 import id.backendk3.engifarm.FarmAnimal.FarmAnimal;
+import id.backendk3.engifarm.Player;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import java.util.Observer;
 import java.util.ArrayList;
 import java.util.Observable;
+import java.util.Observer;
+
+// import id.backendk3.engifarm.Cell.Land.Coop;
 
 public class MapView extends JPanel implements Observer {
     final int ANIMAL_PADDING = 5;

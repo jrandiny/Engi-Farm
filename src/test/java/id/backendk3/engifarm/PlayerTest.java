@@ -1,20 +1,26 @@
 package id.backendk3.engifarm;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import id.backendk3.engifarm.Cell.Cell;
+import id.backendk3.engifarm.Cell.Facility.Truck;
+import id.backendk3.engifarm.Cell.Facility.Well;
+import id.backendk3.engifarm.Cell.Land.Coop;
+import id.backendk3.engifarm.Cell.Land.Land;
+import id.backendk3.engifarm.Farm.MoveType;
+import id.backendk3.engifarm.FarmAnimal.Chicken;
+import id.backendk3.engifarm.FarmAnimal.Cow;
+import id.backendk3.engifarm.FarmAnimal.Duck;
+import id.backendk3.engifarm.Product.FarmProduct.ChickenEgg;
+import id.backendk3.engifarm.Product.FarmProduct.CowMilk;
+import id.backendk3.engifarm.Product.FarmProduct.DuckEgg;
+import id.backendk3.engifarm.Product.Product;
 import org.junit.jupiter.api.Test;
 
-import java.util.Map;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import id.backendk3.engifarm.Farm.MoveType;
-import id.backendk3.engifarm.Cell.Cell;
-import id.backendk3.engifarm.Cell.Land.*;
-import id.backendk3.engifarm.Cell.Facility.*;
-import id.backendk3.engifarm.FarmAnimal.*;
-import id.backendk3.engifarm.Product.FarmProduct.*;
-import id.backendk3.engifarm.Product.Product;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerTest 
 {

@@ -2,13 +2,12 @@ package id.backendk3.engifarm.View;
 
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
-
 import id.backendk3.engifarm.Tooltip;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Observer;
 import java.util.Observable;
+import java.util.Observer;
 
 public class TooltipView extends JPanel implements Observer {
 
