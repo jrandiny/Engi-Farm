@@ -83,16 +83,18 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>3.1.0</version>
-          <configuration>                                                              
-            <doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>                         
-            <docletArtifact>                                                         
-              <groupId>org.umlgraph</groupId>                                      
-              <artifactId>umlgraph</artifactId>                                    
-              <version>5.6</version>                                               
-            </docletArtifact>                                                        
-            <additionalparam>-views -all</additionalparam>                           
-            <useStandardDocletOptions>true</useStandardDocletOptions>                
-          </configuration>   
+          <configuration>
+                <doclet>info.leadinglight.umljavadoclet.UmlJavaDoclet</doclet>
+                <docletArtifact>
+                    <groupId>com.chfourie</groupId>
+                    <artifactId>uml-java-doclet</artifactId>
+                    <version>1.0.0</version>
+                </docletArtifact>
+                <!-- -linetype polyline / spline / ortho (default) -->
+                <!-- -dependencies public (default) / protected / package / private -->
+                <additionalparam></additionalparam>
+                <useStandardDocletOptions>true</useStandardDocletOptions>
+            </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
