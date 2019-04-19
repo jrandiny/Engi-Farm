@@ -1,15 +1,15 @@
 package id.backendk3.engifarm;
 
-import id.backendk3.engifarm.Cell.Cell;
-import id.backendk3.engifarm.Cell.Facility.Truck;
-import id.backendk3.engifarm.Cell.Facility.Well;
-import id.backendk3.engifarm.Cell.Land.Land;
-import id.backendk3.engifarm.FarmAnimal.FarmAnimal;
-import id.backendk3.engifarm.Product.Product;
-import id.backendk3.engifarm.Product.SideProduct.BeefRolade;
-import id.backendk3.engifarm.Product.SideProduct.EggBenedict;
-import id.backendk3.engifarm.Product.SideProduct.Meatza;
-import id.backendk3.engifarm.Product.SideProduct.SideProduct;
+import id.backendk3.engifarm.cell.Cell;
+import id.backendk3.engifarm.cell.facility.Truck;
+import id.backendk3.engifarm.cell.facility.Well;
+import id.backendk3.engifarm.cell.land.Land;
+import id.backendk3.engifarm.farmanimal.FarmAnimal;
+import id.backendk3.engifarm.product.Product;
+import id.backendk3.engifarm.product.sideproduct.BeefRolade;
+import id.backendk3.engifarm.product.sideproduct.EggBenedict;
+import id.backendk3.engifarm.product.sideproduct.Meatza;
+import id.backendk3.engifarm.product.sideproduct.SideProduct;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -80,10 +80,10 @@ public class Player extends Observable implements Sprite {
     }
 
     /**
-     * Menambahkan Product ke dalam bag
+     * Menambahkan product ke dalam bag
      *
-     * @param p Product yang ingin ditambahkan
-     * @see id.backendk3.engifarm.Product.Product
+     * @param p product yang ingin ditambahkan
+     * @see id.backendk3.engifarm.product.Product
      */
     public void addBag(Product p) {
         if (itemCount < MAX_ITEM_BAG) {
@@ -152,7 +152,7 @@ public class Player extends Observable implements Sprite {
      * <p>Mengubah posX dan posY tergantung input arah
      *
      * @param arah Arah gerak Player
-     * @param surr Cell sekitar Player
+     * @param surr cell sekitar Player
      */
     public void move(Farm.MoveType arah, Cell[] surr) {
         boolean move = false;
@@ -208,24 +208,24 @@ public class Player extends Observable implements Sprite {
      * Berbicara dengan hewan
      *
      * <p>berbicara dengan hewan dengan memanggil
-     * speak pada FarmAnimal
+     * speak pada farmanimal
      *
      * @param hewan Hewan yang diajak bicara
      * @return Suara hewan yang di talk
-     * @see id.backendk3.engifarm.FarmAnimal.FarmAnimal
+     * @see id.backendk3.engifarm.farmanimal.FarmAnimal
      */
     public String talk(FarmAnimal hewan) {
         return hewan.speak();
     }
 
     /**
-     * Berinteraksi dengan FarmAnimal
+     * Berinteraksi dengan farmanimal
      *
      * <p>interaksi dengan hewan di Coop menghasilkan egg
      * <p>interaksi dengan hewan di GrassLand menghasilkan milk
      *
      * @param hewan Hewan yang diinteraksikan
-     * @see id.backendk3.engifarm.FarmAnimal.FarmAnimal
+     * @see id.backendk3.engifarm.farmanimal.FarmAnimal
      */
     public void interact(FarmAnimal hewan) {
         if (hewan.getHaveProduct() && hewan.getHabitat() != Cell.CellType.BarnType) {
@@ -241,7 +241,7 @@ public class Player extends Observable implements Sprite {
      * <p> interaksi dengan Well mengisi water hingga penuh
      *
      * @param w Objek Well yang diambil airnya
-     * @see id.backendk3.engifarm.Cell.Facility.Well
+     * @see id.backendk3.engifarm.cell.facility.Well
      */
     public void interact(Well w) {
         if (w.isUsable()) {
@@ -263,8 +263,8 @@ public class Player extends Observable implements Sprite {
      * <p>interaksi dengan Truck mengosongkan bag dan mendapat money
      * dan menjadikan Truck tidak bisa digunakan untuk beberapa saat
      *
-     * @param truck Truck yang akan digunakan untuk menjual Product
-     * @see id.backendk3.engifarm.Cell.Facility.Truck
+     * @param truck Truck yang akan digunakan untuk menjual product
+     * @see id.backendk3.engifarm.cell.facility.Truck
      */
     public void interact(Truck truck) {
         if (truck.isUsable()) {
@@ -279,7 +279,7 @@ public class Player extends Observable implements Sprite {
                 truck.use(15);
                 itemCount = 0;
             } else {
-                throw new RuntimeException("No Product to sell");
+                throw new RuntimeException("No product to sell");
             }
         } else {
             throw new RuntimeException("Truck is currently unusable");
@@ -289,11 +289,11 @@ public class Player extends Observable implements Sprite {
     /**
      * Membunuh hewan untuk diambil dagingnya
      *
-     * <p>dilakukan untuk mengambil meat dari FarmAnimal
+     * <p>dilakukan untuk mengambil meat dari farmanimal
      * hewan langsung dianggap mati
      *
      * @param hewan Hewan yang akan disembelih
-     * @see id.backendk3.engifarm.FarmAnimal.FarmAnimal
+     * @see id.backendk3.engifarm.farmanimal.FarmAnimal
      */
     public void kill(FarmAnimal hewan) {
         if (hewan.getHabitat() == Cell.CellType.BarnType && !hewan.getDeathStatus()) {
@@ -305,10 +305,10 @@ public class Player extends Observable implements Sprite {
     }
 
     /**
-     * Menyiram Land tempat Player berdiri
+     * Menyiram land tempat Player berdiri
      *
-     * @param l Land yang akan disiram
-     * @see id.backendk3.engifarm.Cell.Land.Land
+     * @param l land yang akan disiram
+     * @see id.backendk3.engifarm.cell.land.Land
      */
     public void grow(Land l) {
         if (water > 0) {
@@ -318,7 +318,7 @@ public class Player extends Observable implements Sprite {
                 setChanged();
                 notifyObservers();
             } else {
-                throw new RuntimeException("Land already have grass");
+                throw new RuntimeException("land already have grass");
             }
         } else {
             throw new RuntimeException("Watering can is empty");
@@ -326,14 +326,14 @@ public class Player extends Observable implements Sprite {
     }
 
     /**
-     * Membuat SideProduct
+     * Membuat sideproduct
      *
-     * <p> digunakan pada Mixer dan menghasilkan SideProduct
+     * <p> digunakan pada Mixer dan menghasilkan sideproduct
      *
-     * @param id Enum dari SideProduct yang akan dibuat
-     * @see id.backendk3.engifarm.Product.Product
-     * @see id.backendk3.engifarm.Product.SideProduct.SideProduct
-     * @see id.backendk3.engifarm.Cell.Facility.Mixer
+     * @param id Enum dari sideproduct yang akan dibuat
+     * @see id.backendk3.engifarm.product.Product
+     * @see id.backendk3.engifarm.product.sideproduct.SideProduct
+     * @see id.backendk3.engifarm.cell.facility.Mixer
      */
     public void mix(Product.ProductType id) {
         if (itemCount < MAX_ITEM_BAG) {

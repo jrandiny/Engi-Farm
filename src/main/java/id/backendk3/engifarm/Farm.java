@@ -1,15 +1,15 @@
 package id.backendk3.engifarm;
 
-import id.backendk3.engifarm.Cell.Cell;
-import id.backendk3.engifarm.Cell.Facility.Facility;
-import id.backendk3.engifarm.Cell.Facility.Mixer;
-import id.backendk3.engifarm.Cell.Facility.Truck;
-import id.backendk3.engifarm.Cell.Facility.Well;
-import id.backendk3.engifarm.Cell.Land.Barn;
-import id.backendk3.engifarm.Cell.Land.Coop;
-import id.backendk3.engifarm.Cell.Land.GrassLand;
-import id.backendk3.engifarm.Cell.Land.Land;
-import id.backendk3.engifarm.FarmAnimal.*;
+import id.backendk3.engifarm.cell.Cell;
+import id.backendk3.engifarm.cell.facility.Facility;
+import id.backendk3.engifarm.cell.facility.Mixer;
+import id.backendk3.engifarm.cell.facility.Truck;
+import id.backendk3.engifarm.cell.facility.Well;
+import id.backendk3.engifarm.cell.land.Barn;
+import id.backendk3.engifarm.cell.land.Coop;
+import id.backendk3.engifarm.cell.land.GrassLand;
+import id.backendk3.engifarm.cell.land.Land;
+import id.backendk3.engifarm.farmanimal.*;
 
 import java.util.*;
 
@@ -19,10 +19,10 @@ import java.util.*;
  * <p>Kelas Farm merupakan kelas yang menyimpan data peta permainan dan memanipulasinya
  *
  * @author backendk3
- * @see id.backendk3.engifarm.Cell.Cell
- * @see id.backendk3.engifarm.Cell.Facility
- * @see id.backendk3.engifarm.Cell.Land
- * @see id.backendk3.engifarm.FarmAnimal.FarmAnimal
+ * @see id.backendk3.engifarm.cell.Cell
+ * @see id.backendk3.engifarm.cell.facility
+ * @see id.backendk3.engifarm.cell.land
+ * @see id.backendk3.engifarm.farmanimal.FarmAnimal
  */
 public class Farm extends Observable {
 
@@ -313,12 +313,12 @@ public class Farm extends Observable {
     }
 
     /**
-     * Fungsi yang mengembalikan objek Facility yang berada sesuai dengan perintah move yang diberikan
+     * Fungsi yang mengembalikan objek facility yang berada sesuai dengan perintah move yang diberikan
      *
      * @param x         posisi X
      * @param Y         posisi Y
      * @param direction perintah move
-     * @return Objek Facility jika ditemukan dan berada pada posisi yang sesuai dengan perintah move
+     * @return Objek facility jika ditemukan dan berada pada posisi yang sesuai dengan perintah move
      */
     public Facility getFacilities(int x, int y, MoveType direction) {
         Cell[] surr = getSurrounding(x, y);

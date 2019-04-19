@@ -1,17 +1,17 @@
 package id.backendk3.engifarm;
 
-import id.backendk3.engifarm.Cell.Cell;
-import id.backendk3.engifarm.Cell.Land.Land;
-import id.backendk3.engifarm.Controller.InputController;
-import id.backendk3.engifarm.Controller.SimulationController;
-import id.backendk3.engifarm.View.*;
+import id.backendk3.engifarm.cell.Cell;
+import id.backendk3.engifarm.cell.land.Land;
+import id.backendk3.engifarm.controller.InputController;
+import id.backendk3.engifarm.controller.SimulationController;
+import id.backendk3.engifarm.view.*;
 
 import java.util.ArrayList;
 
 /**
  * Kelas utama permainan Engi's Farm
  *
- * <p>Kelas ini berguna untuk menyiapkan sistem MVC (Model - View - Controller).
+ * <p>Kelas ini berguna untuk menyiapkan sistem MVC (Model - view - controller).
  */
 public class App {
     public static void main(String[] args) {

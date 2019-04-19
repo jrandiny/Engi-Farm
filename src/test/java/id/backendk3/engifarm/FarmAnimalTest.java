@@ -1,8 +1,8 @@
 package id.backendk3.engifarm;
 
-import id.backendk3.engifarm.Cell.Cell;
-import id.backendk3.engifarm.FarmAnimal.*;
-import id.backendk3.engifarm.Product.Product;
+import id.backendk3.engifarm.cell.Cell;
+import id.backendk3.engifarm.farmanimal.*;
+import id.backendk3.engifarm.product.Product;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

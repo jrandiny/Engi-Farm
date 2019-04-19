@@ -8,7 +8,7 @@ package id.backendk3.engifarm;
  * Jika timer objek sudah habis maka akan memanggil method callback yang dioverride oleh kelas turunannya
  *
  * @author backendk3
- * @see id.backendk3.engifarm.Cell.Cell
+ * @see id.backendk3.engifarm.cell.Cell
  */
 public abstract class TimerObj {
     private int timer;

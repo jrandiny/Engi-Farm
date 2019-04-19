@@ -1,18 +1,18 @@
 package id.backendk3.engifarm;
 
-import id.backendk3.engifarm.Cell.Cell;
-import id.backendk3.engifarm.Cell.Facility.Truck;
-import id.backendk3.engifarm.Cell.Facility.Well;
-import id.backendk3.engifarm.Cell.Land.Coop;
-import id.backendk3.engifarm.Cell.Land.Land;
+import id.backendk3.engifarm.cell.Cell;
+import id.backendk3.engifarm.cell.facility.Truck;
+import id.backendk3.engifarm.cell.facility.Well;
+import id.backendk3.engifarm.cell.land.Coop;
+import id.backendk3.engifarm.cell.land.Land;
 import id.backendk3.engifarm.Farm.MoveType;
-import id.backendk3.engifarm.FarmAnimal.Chicken;
-import id.backendk3.engifarm.FarmAnimal.Cow;
-import id.backendk3.engifarm.FarmAnimal.Duck;
-import id.backendk3.engifarm.Product.FarmProduct.ChickenEgg;
-import id.backendk3.engifarm.Product.FarmProduct.CowMilk;
-import id.backendk3.engifarm.Product.FarmProduct.DuckEgg;
-import id.backendk3.engifarm.Product.Product;
+import id.backendk3.engifarm.farmanimal.Chicken;
+import id.backendk3.engifarm.farmanimal.Cow;
+import id.backendk3.engifarm.farmanimal.Duck;
+import id.backendk3.engifarm.product.farmproduct.ChickenEgg;
+import id.backendk3.engifarm.product.farmproduct.CowMilk;
+import id.backendk3.engifarm.product.farmproduct.DuckEgg;
+import id.backendk3.engifarm.product.Product;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

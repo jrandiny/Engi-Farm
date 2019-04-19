@@ -1,11 +1,11 @@
 package id.backendk3.engifarm;
 
-import id.backendk3.engifarm.Cell.Cell;
-import id.backendk3.engifarm.Cell.Facility.Mixer;
-import id.backendk3.engifarm.Cell.Facility.Truck;
-import id.backendk3.engifarm.Cell.Facility.Well;
+import id.backendk3.engifarm.cell.Cell;
+import id.backendk3.engifarm.cell.facility.Mixer;
+import id.backendk3.engifarm.cell.facility.Truck;
+import id.backendk3.engifarm.cell.facility.Well;
 import id.backendk3.engifarm.Farm.MoveType;
-import id.backendk3.engifarm.FarmAnimal.Cow;
+import id.backendk3.engifarm.farmanimal.Cow;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
