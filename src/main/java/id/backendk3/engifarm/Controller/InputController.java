@@ -34,9 +34,9 @@ public class InputController implements KeyListener {
     public void keyReleased(KeyEvent e) {
     }
 
-    public void dialogSet(String type, String result){
-        synchronized(Concurrent.TOKEN){
-            if(type.equals("mix")){
+    public void dialogSet(String type, String result) {
+        synchronized (Concurrent.TOKEN) {
+            if (type.equals("mix")) {
                 switch (result) {
                     case "Beef Rolade":
                         p.mix(ProductType.BeefRoladeType);
@@ -57,26 +57,26 @@ public class InputController implements KeyListener {
     @Override
     public void keyTyped(KeyEvent e) {
         synchronized (Concurrent.TOKEN) {
-            Cell[] surr = map.getSurrounding(p.getX(),p.getY());
+            Cell[] surr = map.getSurrounding(p.getX(), p.getY());
             notif.setMsg("Engi's Farm");
             try {
-                if(e.getKeyChar() == 'q'){
+                if (e.getKeyChar() == 'q') {
                     notif.setExit(true);
-                } else if(e.getKeyChar() == 'w'){
-                    p.move(Farm.MoveType.Up,surr);
-                } else if(e.getKeyChar() == 'd'){
-                    p.move(Farm.MoveType.Right,surr);
-                } else if(e.getKeyChar() == 's'){
-                    p.move(Farm.MoveType.Down,surr);
-                } else if(e.getKeyChar() == 'a'){
-                    p.move(Farm.MoveType.Left,surr);
-                } else if(e.getKeyChar() == 'l'){
-                    p.grow((Land)(map.getMap().get(p.getY()).get(p.getX())));
-                // } else if(input.equals("h")){
-                //     printHelp();
-                } else if(e.getKeyChar() == 'k' || e.getKeyChar() == 'i' || e.getKeyChar() == 'j'){
+                } else if (e.getKeyChar() == 'w') {
+                    p.move(Farm.MoveType.Up, surr);
+                } else if (e.getKeyChar() == 'd') {
+                    p.move(Farm.MoveType.Right, surr);
+                } else if (e.getKeyChar() == 's') {
+                    p.move(Farm.MoveType.Down, surr);
+                } else if (e.getKeyChar() == 'a') {
+                    p.move(Farm.MoveType.Left, surr);
+                } else if (e.getKeyChar() == 'l') {
+                    p.grow((Land) (map.getMap().get(p.getY()).get(p.getX())));
+                    // } else if(input.equals("h")){
+                    //     printHelp();
+                } else if (e.getKeyChar() == 'k' || e.getKeyChar() == 'i' || e.getKeyChar() == 'j') {
                     FarmAnimal animal = map.getAnimals(p.getX(), p.getY(), p.getDirection());
-                    if(animal!=null){
+                    if (animal != null) {
                         //ada animal di arahnya
                         switch (e.getKeyChar()) {
                             case 'j':
@@ -94,19 +94,19 @@ public class InputController implements KeyListener {
                         }
                     } else {
                         //tidak ada animal
-                        Facility facility = map.getFacilities(p.getX(), p.getY(),p.getDirection());
-                        if(facility != null){
+                        Facility facility = map.getFacilities(p.getX(), p.getY(), p.getDirection());
+                        if (facility != null) {
                             // ada facility
-                            switch (facility.getType()){
+                            switch (facility.getType()) {
                                 case MixerType:
                                     String[] options = new String[3];
                                     options[0] = "Beef Rolade";
                                     options[1] = "Egg Benedict";
                                     options[2] = "Meatza";
-                                    ob.setOptions(options,"mix");
+                                    ob.setOptions(options, "mix");
                                     break;
                                 case TruckType:
-                                    p.interact((Truck)facility);
+                                    p.interact((Truck) facility);
                                     break;
                                 case WellType:
                                     p.interact((Well) facility);
@@ -121,7 +121,7 @@ public class InputController implements KeyListener {
                 }
             } catch (Exception ex) {
                 notif.setMsg(ex.getMessage());
-            }   
+            }
         }
     }
 }

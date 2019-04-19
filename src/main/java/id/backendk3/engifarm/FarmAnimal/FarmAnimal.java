@@ -15,9 +15,9 @@ import java.util.Collections;
 
 /**
  * Kelas abstrak FarmAnimal turunan TimerObj
- * 
+ *
  * <p>Kelas merepresantasikan hewan tertentu.
- * 
+ *
  * @author backendk3
  * @see Chicken
  * @see Cow
@@ -27,36 +27,53 @@ import java.util.Collections;
  * @see Rabbit
  */
 
-public abstract class FarmAnimal extends TimerObj implements Sprite{
-    /** Waktu hewan hingga lapar */
+public abstract class FarmAnimal extends TimerObj implements Sprite {
+    /**
+     * Waktu hewan hingga lapar
+     */
     protected final int TIME_TO_HUNGRY;
-    /** Waktu hewan hingga mati */
-    protected final int TIME_TO_DEATH=10;
-    /** Lokasi X */
+    /**
+     * Waktu hewan hingga mati
+     */
+    protected final int TIME_TO_DEATH = 10;
+    /**
+     * Lokasi X
+     */
     protected int posX;
-    /** Lokasi Y */
+    /**
+     * Lokasi Y
+     */
     protected int posY;
-    /** Status apakah hewan sudah makan atau belum */
+    /**
+     * Status apakah hewan sudah makan atau belum
+     */
     protected boolean eatStatus;
-    /** Status apakah hewan sudah mati atau belum */
+    /**
+     * Status apakah hewan sudah mati atau belum
+     */
     protected boolean deathStatus;
-    /** Tipe habitat dari hewan */
+    /**
+     * Tipe habitat dari hewan
+     */
     protected Cell.CellType habitat;
-    /** Status apakah hewan sudah punya produk atau belum */
+    /**
+     * Status apakah hewan sudah punya produk atau belum
+     */
     protected boolean haveProduct;
 
     /**
      * Konstruktor kelas FarmAnimal
-     * @param x Lokasi X
-     * @param y Lokasi Y
-     * @param time Waktu lapar hewan
+     *
+     * @param x     Lokasi X
+     * @param y     Lokasi Y
+     * @param time  Waktu lapar hewan
      * @param _type Tipe habitat
      */
-    public FarmAnimal(int x,int y,int time, Cell.CellType _type){
-        posX=x;
-        posY=y;
-        habitat=_type;
-        TIME_TO_HUNGRY=time;
+    public FarmAnimal(int x, int y, int time, Cell.CellType _type) {
+        posX = x;
+        posY = y;
+        habitat = _type;
+        TIME_TO_HUNGRY = time;
         setEatStatus(true);
         setDeathStatus(false);
     }
@@ -65,38 +82,39 @@ public abstract class FarmAnimal extends TimerObj implements Sprite{
      * <p>Membuat hewan bergerak secara random ke sekitarnya.
      * Jika lapar dan bergerak ke tempat yang ada rumputnya,
      * hewan akan memakan rumput
+     *
      * @param surr Cell di sekitar hewan (atas, kanan, bawah, kiri, tengah)
      */
-    public void moveRandom(Cell[] surr){
+    public void moveRandom(Cell[] surr) {
         boolean found = false;
-        int i=0;
+        int i = 0;
         Farm.MoveType way = null;
         ArrayList<Farm.MoveType> movement = new ArrayList<>(
-            Arrays.asList(
-                Farm.MoveType.Up,
-                Farm.MoveType.Right,
-                Farm.MoveType.Down,
-                Farm.MoveType.Left));
-                Collections.shuffle(movement);
-                while(!found && i<movement.size()){
-                    way = movement.get(i);
-            if(surr[way.getValue()]!=null){
-                if(!surr[way.getValue()].isOccupied() && surr[way.getValue()].getType()==habitat){
-                    found=true;
-                }else{
-                    i++;    
+                Arrays.asList(
+                        Farm.MoveType.Up,
+                        Farm.MoveType.Right,
+                        Farm.MoveType.Down,
+                        Farm.MoveType.Left));
+        Collections.shuffle(movement);
+        while (!found && i < movement.size()) {
+            way = movement.get(i);
+            if (surr[way.getValue()] != null) {
+                if (!surr[way.getValue()].isOccupied() && surr[way.getValue()].getType() == habitat) {
+                    found = true;
+                } else {
+                    i++;
                 }
-            }else{
+            } else {
                 i++;
             }
         }
-        
-        Land now=(Land)surr[Farm.MoveType.Center.getValue()];
-        
-        if(found){
+
+        Land now = (Land) surr[Farm.MoveType.Center.getValue()];
+
+        if (found) {
             now.unoccupy();
-            ((Land)surr[way.getValue()]).occupy();
-            switch(way){
+            ((Land) surr[way.getValue()]).occupy();
+            switch (way) {
                 case Up:
                     posY--;
                     break;
@@ -113,16 +131,17 @@ public abstract class FarmAnimal extends TimerObj implements Sprite{
                     break;
             }
         }
-        
-        if(!eatStatus && now.haveGrass()){
+
+        if (!eatStatus && now.haveGrass()) {
             setEatStatus(true);
             now.removeGrass();
         }
     }
-    
+
     /**
      * Fungsi abstrak yang akan diimplementasikan hewan tertentu
      * untuk mendapatkan produk hewan tersebut
+     *
      * @return Product hewan tertentu
      */
     public abstract Product getProduct();
@@ -130,18 +149,20 @@ public abstract class FarmAnimal extends TimerObj implements Sprite{
     /**
      * Fungsi abstrak yang akan diimplementasikan hewan tertentu
      * untuk mendapatkan suara hewan tersebut
+     *
      * @return String suara hewan tertentu
      */
     public abstract String speak();
-    
+
     /**
      * Setter status makan dari hewan
+     *
      * @param status Status makan
      */
-    public void setEatStatus(boolean status){
-        eatStatus=status;
+    public void setEatStatus(boolean status) {
+        eatStatus = status;
         haveProduct = true;
-        if(eatStatus){
+        if (eatStatus) {
             setTimer(TIME_TO_HUNGRY);
             setTimerActive(true);
         } else {
@@ -149,14 +170,15 @@ public abstract class FarmAnimal extends TimerObj implements Sprite{
             setTimerActive(true);
         }
     }
-    
+
     /**
      * Setter status kematian dari hewan
+     *
      * @param status Status kematian
      */
-    public void setDeathStatus(boolean status){
-        deathStatus=status;
-        if(deathStatus){
+    public void setDeathStatus(boolean status) {
+        deathStatus = status;
+        if (deathStatus) {
             setTimerActive(false);
         } else {
             setEatStatus(true);
@@ -165,85 +187,92 @@ public abstract class FarmAnimal extends TimerObj implements Sprite{
 
     /**
      * Getter status makan dari hewan
+     *
      * @return Boolean status makan hewan
      */
-    public boolean getEatStatus(){
+    public boolean getEatStatus() {
         return eatStatus;
     }
-    
+
     /**
      * Getter status kematian dari hewan
+     *
      * @return Boolean status kematian hewan
      */
-    public boolean getDeathStatus(){
+    public boolean getDeathStatus() {
         return deathStatus;
     }
-    
+
     /**
      * Menyatakan hewan dalam kondisi lapar jika timer objek hewan dengan waktu kelaparan sudah habis
-     * <p>Menyatakan hewan dalam kondisi mati jika timer objek hewan dengan waktu kematian sudah habis 
+     * <p>Menyatakan hewan dalam kondisi mati jika timer objek hewan dengan waktu kematian sudah habis
      */
-    public void callback(){
-        if(eatStatus){
+    public void callback() {
+        if (eatStatus) {
             setEatStatus(false);
-        }else{
+        } else {
             setDeathStatus(true);
         }
     }
-    
+
     /**
      * Mengembalikan lokasi X
+     *
      * @return Lokasi X
      */
-    public int getX(){
+    public int getX() {
         return posX;
     }
 
     /**
      * Mengembalikan lokasi Y
+     *
      * @return Lokasi Y
      */
-    public int getY(){
+    public int getY() {
         return posY;
     }
-    
+
     /**
      * Mengembalikan tipe habitat hewan
+     *
      * @return CellType habitat hewan
      */
-    public Cell.CellType getHabitat(){
+    public Cell.CellType getHabitat() {
         return habitat;
     }
 
     /**
      * Getter status produk dari hewan
+     *
      * @return Boolean status produk hewan
      */
-    public boolean getHaveProduct(){
+    public boolean getHaveProduct() {
         return haveProduct;
     }
 
     /**
      * Setter status produk dari hewan
+     *
      * @param flag Status produk hewan
      */
-    public  void setHaveProduct(boolean flag){
+    public void setHaveProduct(boolean flag) {
         this.haveProduct = flag;
     }
 
     /**
      * Mengembalikan warna background untuk FarmAnimal
-     * 
+     *
      * @return null karena mengikuti BG land yang ada
      */
-    public Color getBGColor(){
+    public Color getBGColor() {
         // return Color.BLACK;
         return null;
     }
 
     /**
      * Mengembalikan sprite untuk FarmAnimal
-     * 
+     *
      * @return Gambar sprite tergantung kelas turunannya
      */
     public abstract Image getSprite() throws IOException;

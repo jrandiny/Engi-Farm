@@ -12,23 +12,20 @@ import java.util.ArrayList;
  * Kelas utama permainan Engi's Farm
  *
  * <p>Kelas ini berguna untuk menyiapkan sistem MVC (Model - View - Controller).
- * 
  */
-public class App 
-{   
-    public static void main( String[] args )
-    {   
+public class App {
+    public static void main(String[] args) {
         // Setup variable
         OptionBox optionBox = new OptionBox();
-        Farm map = new Farm(8,8);
+        Farm map = new Farm(8, 8);
         Player player = initPlayer(map);
         Tooltip notifier = new Tooltip();
-        InputController inputContoller = new InputController(player,map,notifier,optionBox);
+        InputController inputContoller = new InputController(player, map, notifier, optionBox);
         SimulationController simulationController = new SimulationController(map);
         AppView myAppView;
-        
+
         // Create main view
-        myAppView = new AppView(player,map);
+        myAppView = new AppView(player, map);
         MapView mapView = myAppView.getMapView();
         TooltipView tooltipView = myAppView.getTooltipView();
         MoneyView moneyView = myAppView.getMoneyView();
@@ -50,19 +47,19 @@ public class App
 
         // Start simulation
         simulationController.start();
-        while(true);
+        while (true) ;
     }
 
-    public static Player initPlayer(Farm map){
+    public static Player initPlayer(Farm map) {
         ArrayList<ArrayList<Cell>> temp = map.getMap();
         final int INIT_WATER = 50;
         final int INIT_MONEY = 0;
         int initX, initY;
         do {
-            initX = (int) (Math.random()*temp.get(0).size());
-            initY = (int) (Math.random()*temp.size());
+            initX = (int) (Math.random() * temp.get(0).size());
+            initY = (int) (Math.random() * temp.size());
         } while (temp.get(initY).get(initX).isOccupied());
         ((Land) (temp.get(initY).get(initX))).occupy();
-        return  new Player(INIT_WATER,INIT_MONEY,initX,initY,Farm.MoveType.Up);
+        return new Player(INIT_WATER, INIT_MONEY, initX, initY, Farm.MoveType.Up);
     }
 }

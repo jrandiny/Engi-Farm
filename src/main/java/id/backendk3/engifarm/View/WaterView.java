@@ -24,7 +24,7 @@ public class WaterView extends JPanel implements Observer {
 
     public void update(Observable observable, Object arg) {
         Player p = (Player) observable;
-        waterLabel.setText(String.format("Water  = %d",p.getWater()));
+        waterLabel.setText(String.format("Water  = %d", p.getWater()));
         this.repaint();
         this.revalidate();
     }

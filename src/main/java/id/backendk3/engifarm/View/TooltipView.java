@@ -16,7 +16,7 @@ public class TooltipView extends JPanel implements Observer {
     public TooltipView() {
         this.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         TooltipLabel = new JTextArea();
-        TooltipLabel.setSize(new Dimension(AppView.SIDEBAR_SIZE,50));
+        TooltipLabel.setSize(new Dimension(AppView.SIDEBAR_SIZE, 50));
         TooltipLabel.setBackground(new Color(255, 255, 255, 0));
         TooltipLabel.setLineWrap(true);
         TooltipLabel.setWrapStyleWord(true);

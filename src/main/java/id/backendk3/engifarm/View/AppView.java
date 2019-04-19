@@ -31,12 +31,12 @@ public class AppView extends JFrame implements Observer {
         Dimension dim = tk.getScreenSize();
         this.setSize(dim.width / 2, dim.height / 2);
         this.setLocationRelativeTo(null);
-        
+
         final JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayoutManager(1, 2, new Insets(10, 10, 10, 10), -1, -1));
         final JScrollPane scrollPaneMap = new JScrollPane();
         mainPanel.add(scrollPaneMap, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
-        mapPanel = new MapView(p,f);
+        mapPanel = new MapView(p, f);
         scrollPaneMap.setViewportView(mapPanel.$$$getRootComponent$$$());
         final JPanel sidePanel = new JPanel();
         sidePanel.setLayout(new GridLayoutManager(5, 1, new Insets(0, 0, 0, 0), -1, -1));
@@ -51,36 +51,36 @@ public class AppView extends JFrame implements Observer {
         sidePanel.add(inventoryPanel, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         final JLabel titleLabel = new JLabel();
         titleLabel.setText("Engi's Farm");
-        sidePanel.add(titleLabel, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, new Dimension(SIDEBAR_SIZE,-1), null, null, 0, false));
+        sidePanel.add(titleLabel, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, new Dimension(SIDEBAR_SIZE, -1), null, null, 0, false));
         this.add(mainPanel);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setFocusable(true);
     }
-    
-    public void setInputListener(InputController ic){
+
+    public void setInputListener(InputController ic) {
         this.ic = ic;
         this.addKeyListener(ic);
     }
 
-    public MapView getMapView(){
+    public MapView getMapView() {
         return mapPanel;
     }
 
-    public TooltipView getTooltipView(){
+    public TooltipView getTooltipView() {
         return tooltipPanel;
     }
 
-    public MoneyView getMoneyView(){
+    public MoneyView getMoneyView() {
         return moneyPanel;
     }
 
-    public WaterView getWaterView(){
+    public WaterView getWaterView() {
         return waterPanel;
     }
-    
-    public InventoryView getInventoryView(){
+
+    public InventoryView getInventoryView() {
         return inventoryPanel;
     }
 
@@ -88,6 +88,6 @@ public class AppView extends JFrame implements Observer {
         OptionBox ob = (OptionBox) observable;
         String[] options = ob.getOptions();
         String out = (String) JOptionPane.showInputDialog(this, "Pilih", "Pilihan", JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-        ic.dialogSet(ob.getType(),out);
+        ic.dialogSet(ob.getType(), out);
     }
 }

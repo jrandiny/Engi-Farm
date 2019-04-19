@@ -24,7 +24,7 @@ public class MoneyView extends JPanel implements Observer {
 
     public void update(Observable observable, Object arg) {
         Player p = (Player) observable;
-        moneyLabel.setText(String.format("Money  = %d",p.getMoney()));
+        moneyLabel.setText(String.format("Money  = %d", p.getMoney()));
         this.repaint();
         this.revalidate();
     }
