@@ -14,6 +14,11 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
+/**
+ * Kelas riil MapView turunan JPanel
+ * 
+ * <p>Kelas ini merepresentasikan data peta permainan yang akan ditampilkan ke layar
+ */
 public class MapView extends JPanel implements Observer {
     final int ANIMAL_PADDING = 5;
     final int GRASS_PADDING = 15;
@@ -28,6 +33,12 @@ public class MapView extends JPanel implements Observer {
     ArrayList<ArrayList<Cell>> mapGrid;
     ArrayList<FarmAnimal> animal;
 
+    /**
+     * Konstruktor kelas MapView
+     * 
+     * @param p data Player
+     * @param f data yang ada pada peta permainan
+     */
     public MapView(Player p, Farm f) {
         mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
@@ -42,10 +53,18 @@ public class MapView extends JPanel implements Observer {
         tiles = new JPanel[row][col];
     }
 
+    /**
+     * Method yang mengembalikan panel utama
+     * 
+     * @return panel utama
+     */
     public JComponent getMainPanel() {
         return mainPanel;
     }
 
+    /**
+     * Method pembaruan untuk menangani perubahan data peta permainan dan ditampilkan kembali ke layar
+     */
     public void update(Observable observable, Object arg) {
 
         if (observable instanceof Farm) {

@@ -12,6 +12,11 @@ import id.backendk3.engifarm.product.Product.ProductType;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * Kelas riil InputController turunan KeyListener
+ * 
+ * <p>Kelas ini merepresentasikan penanganan pada input perintah dari user agar dapat dimengerti dan dijalankan pada permainan
+ */
 public class InputController implements KeyListener {
 
     Player p;
@@ -19,6 +24,14 @@ public class InputController implements KeyListener {
     Tooltip notif;
     OptionBox ob;
 
+    /**
+     * Konstruktor kelas InputController
+     * 
+     * @param player player
+     * @param farm data permainan simulasi Engi's Farm
+     * @param notif pesan bantuan tooltip
+     * @param ob opsi pilihan perintah optionbox
+     */
     public InputController(Player player, Farm farm, Tooltip notif, OptionBox ob) {
         this.p = player;
         this.map = farm;
@@ -26,14 +39,27 @@ public class InputController implements KeyListener {
         this.ob = ob;
     }
 
+    /**
+     * Method overide yang melakukan aksi jika perintah key ditekan
+     * @param e perintah key
+     */
     @Override
     public void keyPressed(KeyEvent e) {
     }
 
+    /**
+     * Method overide yang melakukan aksi jika perintah key dilepas
+     * @param e perintah key
+     */
     @Override
     public void keyReleased(KeyEvent e) {
     }
 
+    /**
+     * Method yang penanganan input dari optionbox pada perintah mix pada produk-produk dalam inventory player
+     * @param type tipe perintah 
+     * @param result produk yang akan dihasilkan melalui perintah mix
+     */
     public void dialogSet(String type, String result) {
         synchronized (Concurrent.TOKEN) {
             if (type.equals("mix")) {
@@ -54,6 +80,10 @@ public class InputController implements KeyListener {
         }
     }
 
+    /**
+     * Method yang menangani aksi sesuai dengan penerimaan input perintah key dari user
+     * @param e perintah key dari user
+     */
     @Override
     public void keyTyped(KeyEvent e) {
         synchronized (Concurrent.TOKEN) {

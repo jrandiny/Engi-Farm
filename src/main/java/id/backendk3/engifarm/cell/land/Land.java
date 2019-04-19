@@ -34,6 +34,9 @@ public abstract class Land extends Cell {
         setTimerActive(true);
     }
 
+    /**
+     * Method overide callback yang berisi perintah jika waktu dari timer objek habis
+     */
     @Override
     public void callback() {
         removeGrass();

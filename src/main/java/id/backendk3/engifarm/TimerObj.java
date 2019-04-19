@@ -23,7 +23,7 @@ public abstract class TimerObj {
     }
 
     /**
-     * Method abstrak callback
+     * Method abstrak callback yang merepresentasikan perintah jika timer objek habis
      */
     public abstract void callback();
 

@@ -14,6 +14,11 @@ import java.util.ArrayList;
  * <p>Kelas ini berguna untuk menyiapkan sistem MVC (Model - view - controller).
  */
 public class App {
+
+    /**
+     * Program Utama permainan Engi's Farm
+     * @param args argumen program utama
+     */
     public static void main(String[] args) {
         // Setup variable
         OptionBox optionBox = new OptionBox();
@@ -52,6 +57,12 @@ public class App {
         while (true) ;
     }
 
+    /**
+     * Method yang menginisiasikan kondisi player awal
+     * 
+     * @param map peta permainan
+     * @return karakter Player dengan data-data Playernya
+     */
     public static Player initPlayer(Farm map) {
         ArrayList<ArrayList<Cell>> temp = map.getMap();
         final int INIT_WATER = 50;

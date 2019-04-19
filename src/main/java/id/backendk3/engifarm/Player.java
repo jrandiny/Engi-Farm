@@ -27,6 +27,12 @@ import java.util.Observable;
  */
 public class Player extends Observable implements Sprite {
     private static class Resep {
+
+        /**
+         * Method statik yang mengembalikan SideProduct dengan tipe produk tertentu
+         * @param id Tipe produk
+         * @return SideProduct yang sesuai dengan tipe produk yang dimasukkan
+         */
         public static SideProduct getRecipe(Product.ProductType id) {
             if (id == Product.ProductType.EggBenedictType) {
                 return new EggBenedict();

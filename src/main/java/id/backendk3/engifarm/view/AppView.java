@@ -12,7 +12,15 @@ import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
 
+/**
+ * Kelas riil AppView turunan JFrame
+ * 
+ * <p>Kelas ini merepresentasikan interface permainan dengan tampilan yang menarik
+ */
 public class AppView extends JFrame implements Observer {
+    /**
+     * Ukuran Sidebar
+     */
     public static final int SIDEBAR_SIZE = 300;
 
     private MapView mapPanel;
@@ -22,6 +30,12 @@ public class AppView extends JFrame implements Observer {
     private InventoryView inventoryPanel;
     private InputController ic;
 
+    /**
+     * Konstruktor kelas AppView
+     * 
+     * @param p data player
+     * @param f data yang ada pada peta permainan
+     */
     public AppView(Player p, Farm f) {
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension dim = tk.getScreenSize();
@@ -55,31 +69,57 @@ public class AppView extends JFrame implements Observer {
         this.setFocusable(true);
     }
 
+    /**
+     * Method yang menetapkan input perintah dari user
+     */
     public void setInputListener(InputController ic) {
         this.ic = ic;
         this.addKeyListener(ic);
     }
 
+    /**
+     * Method yang mengembalikan panel peta permainan
+     * @return panel peta permainan
+     */
     public MapView getMapView() {
         return mapPanel;
     }
 
+    /**
+     * Method yang mengembalikan panel tooltip
+     * @return panel tooltip
+     */
     public TooltipView getTooltipView() {
         return tooltipPanel;
     }
 
+    /**
+     * Method yang mengembalikan panel data money yang dimiliki player
+     * @return panel data money yang dimiliki player
+     */
     public MoneyView getMoneyView() {
         return moneyPanel;
     }
 
+    /**
+     * Method yang mengembalikan panel data water yang dimiliki player
+     * @return panel data water yang dimiliki player
+     */
     public WaterView getWaterView() {
         return waterPanel;
     }
 
+    /**
+     * Method yang mengembalikan panel data produk yang ada pada inventory player
+     * @return panel data produk yang ada pada inventory player
+     */
     public InventoryView getInventoryView() {
         return inventoryPanel;
     }
 
+    /**
+     * Method pembaruan untuk menangani perubahan data permainan dan ditampilkan kembali ke layar
+     */
     public void update(Observable observable, Object arg) {
         OptionBox ob = (OptionBox) observable;
         String[] options = ob.getOptions();
