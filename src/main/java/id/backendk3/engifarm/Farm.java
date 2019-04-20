@@ -256,7 +256,7 @@ public class Farm extends Observable {
      * Fungsi yang mengembalikan array yang berisi cell-cell di sekitar posisi player
      *
      * @param x Posisi X
-     * @param Y Posisi Y
+     * @param y Posisi Y
      * @return array yang berisi cell-cell di sekitar posisi player
      */
     public Cell[] getSurrounding(int x, int y) {
@@ -295,7 +295,7 @@ public class Farm extends Observable {
      * Fungsi yang mengembalikan objek Animal yang berada sesuai dengan perintah move yang diberikan
      *
      * @param x         posisi X
-     * @param Y         posisi Y
+     * @param y         posisi Y
      * @param direction perintah move
      * @return Objek Animal jika ditemukan dan berada pada posisi yang sesuai dengan perintah move
      */
@@ -316,7 +316,7 @@ public class Farm extends Observable {
      * Fungsi yang mengembalikan objek facility yang berada sesuai dengan perintah move yang diberikan
      *
      * @param x         posisi X
-     * @param Y         posisi Y
+     * @param y         posisi Y
      * @param direction perintah move
      * @return Objek facility jika ditemukan dan berada pada posisi yang sesuai dengan perintah move
      */
