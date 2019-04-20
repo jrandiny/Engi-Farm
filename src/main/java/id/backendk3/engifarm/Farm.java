@@ -69,9 +69,9 @@ public class Farm extends Observable {
 
     private final int WIDTH;
     private final int HEIGHT;
-    private ArrayList<ArrayList<Cell>> map;
-    private LinkedHashSet<Facility> facilities;
-    private ArrayList<FarmAnimal> farmAnimals;
+    private final ArrayList<ArrayList<Cell>> map;
+    private final LinkedHashSet<Facility> facilities;
+    private final ArrayList<FarmAnimal> farmAnimals;
 
     private void setCellMap(int xFrom, int yFrom, int xTo, int yTo, Cell.CellType type) {
         for (int j = yFrom; j <= yTo; j++) {
@@ -196,16 +196,16 @@ public class Farm extends Observable {
         boolean horizon = Math.random() < 0.5;
         final int DIVIDER = 4;
         final int MIN_ANIMAL = 2;
-        ArrayList<Cell.CellType> urutan = new ArrayList<Cell.CellType>(
+        ArrayList<Cell.CellType> urutan = new ArrayList<>(
                 Arrays.asList(
                         Cell.CellType.BarnType,
                         Cell.CellType.CoopType,
                         Cell.CellType.GrassLandType
                 )
         );
-        map = new ArrayList<ArrayList<Cell>>(HEIGHT);
+        map = new ArrayList<>(HEIGHT);
         for (int j = 0; j < HEIGHT; j++) {
-            map.add(new ArrayList<Cell>(WIDTH));
+            map.add(new ArrayList<>(WIDTH));
             for (int i = 0; i < WIDTH; i++) {
                 map.get(j).add(null);
             }
@@ -305,8 +305,7 @@ public class Farm extends Observable {
         int[] deltaY = {-1, 0, 1, 0};
         if (surr[direction.getValue()].isOccupied()) {
             // mungkin hewan
-            FarmAnimal temp = findFarmAnimal(x + deltaX[direction.getValue()], y + deltaY[direction.getValue()]);
-            return temp;
+            return findFarmAnimal(x + deltaX[direction.getValue()], y + deltaY[direction.getValue()]);
         }
         return null;
 

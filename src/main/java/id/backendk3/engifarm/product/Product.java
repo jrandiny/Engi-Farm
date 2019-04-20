@@ -75,12 +75,12 @@ public abstract class Product {
     /**
      * Atribut konstanta nilai harga jual produk
      */
-    protected final int HARGA;
+    private final int HARGA;
 
     /**
      * Atribut konstanta tipe produk yang membedakan setiap kelas turunan produk
      */
-    protected final ProductType TYPE;
+    private final ProductType TYPE;
 
     /**
      * Konstruktor kelas abstract product
@@ -88,7 +88,7 @@ public abstract class Product {
      * @param _type  tipe produk
      * @param _harga harga produk
      */
-    public Product(ProductType _type, int _harga) {
+    protected Product(ProductType _type, int _harga) {
         HARGA = _harga;
         TYPE = _type;
     }

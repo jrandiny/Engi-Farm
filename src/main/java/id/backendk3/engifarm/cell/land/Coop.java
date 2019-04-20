@@ -33,8 +33,7 @@ public class Coop extends Land {
      */
     public Image getSprite() throws IOException {
         if (haveGrass()) {
-            Image image = ImageIO.read(getClass().getClassLoader().getResource("sprites/grass.png"));
-            return image;
+            return ImageIO.read(getClass().getClassLoader().getResource("sprites/grass.png"));
         } else {
             return null;
         }

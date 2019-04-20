@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class FacilityTest {
+class FacilityTest {
     @Test
-    public void testConstructor() {
+    void testConstructor() {
         Mixer a = new Mixer(0, 0);
         Truck b = new Truck(1, 1);
         Well c = new Well(2, 2);
@@ -34,7 +34,7 @@ public class FacilityTest {
     }
 
     @Test
-    public void testIsUsable() {
+    void testIsUsable() {
         Mixer a = new Mixer(0, 0);
         Truck b = new Truck(1, 1);
         Well c = new Well(2, 2);

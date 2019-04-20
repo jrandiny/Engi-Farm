@@ -28,7 +28,7 @@ public class BeefRolade extends SideProduct {
      * @return MyLinkedList produk yang berisi bahan-bahan untuk membuat BeefRolade
      */
     public MyLinkedList<Product> getRecipe() {
-        MyLinkedList<Product> recipe = new MyLinkedList<Product>();
+        MyLinkedList<Product> recipe = new MyLinkedList<>();
 
         recipe.addFirst(new CowMeat());
         recipe.addFirst(new ChickenEgg());

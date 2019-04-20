@@ -32,8 +32,7 @@ public class Mixer extends Facility {
      * @throws IOException jika gambar tidak tersedia atau tidak dapat dibuka
      */
     public Image getSprite() throws IOException {
-        Image image = ImageIO.read(getClass().getClassLoader().getResource("sprites/facility/mixer.png"));
-        return image;
+        return ImageIO.read(getClass().getClassLoader().getResource("sprites/facility/mixer.png"));
     }
 
     /**

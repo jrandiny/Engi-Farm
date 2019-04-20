@@ -15,7 +15,7 @@ import id.backendk3.engifarm.cell.Cell;
  * @see Barn
  */
 public abstract class Land extends Cell {
-    private int timeToDry;
+    private final int timeToDry;
     private boolean grass;
 
     /**

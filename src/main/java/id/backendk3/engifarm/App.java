@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * <p>Kelas ini berguna untuk menyiapkan sistem MVC (Model - view - controller).
  */
-public class App {
+class App {
 
     /**
      * Program Utama permainan Engi's Farm

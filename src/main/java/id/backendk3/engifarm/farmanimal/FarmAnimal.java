@@ -31,35 +31,35 @@ public abstract class FarmAnimal extends TimerObj implements Sprite {
     /**
      * Waktu hewan hingga lapar
      */
-    protected final int TIME_TO_HUNGRY;
+    private final int TIME_TO_HUNGRY;
     /**
      * Waktu hewan hingga mati
      */
-    protected final int TIME_TO_DEATH = 10;
+    private final int TIME_TO_DEATH = 10;
     /**
      * Lokasi X
      */
-    protected int posX;
+    private int posX;
     /**
      * Lokasi Y
      */
-    protected int posY;
+    private int posY;
     /**
      * Status apakah hewan sudah makan atau belum
      */
-    protected boolean eatStatus;
+    private boolean eatStatus;
     /**
      * Status apakah hewan sudah mati atau belum
      */
-    protected boolean deathStatus;
+    private boolean deathStatus;
     /**
      * Tipe habitat dari hewan
      */
-    protected Cell.CellType habitat;
+    final Cell.CellType habitat;
     /**
      * Status apakah hewan sudah punya produk atau belum
      */
-    protected boolean haveProduct;
+    private boolean haveProduct;
 
     /**
      * Konstruktor kelas farmanimal
@@ -69,7 +69,7 @@ public abstract class FarmAnimal extends TimerObj implements Sprite {
      * @param time  Waktu lapar hewan
      * @param _type Tipe habitat
      */
-    public FarmAnimal(int x, int y, int time, Cell.CellType _type) {
+    FarmAnimal(int x, int y, int time, Cell.CellType _type) {
         posX = x;
         posY = y;
         habitat = _type;

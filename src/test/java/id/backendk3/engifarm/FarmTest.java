@@ -8,16 +8,16 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class FarmTest {
+class FarmTest {
     @Test
-    public void testConstructor() {
+    void testConstructor() {
         Farm farm = new Farm(10, 9);
         assertEquals(10, farm.getMap().get(0).size(), "Wrong width");
         assertEquals(9, farm.getMap().size(), "Wrong height");
     }
 
     @Test
-    public void testGetFacility() {
+    void testGetFacility() {
         Farm farm = new Farm(6, 6);
         boolean found = false;
         for (int i = 0; i < 6; i++) {
@@ -32,6 +32,8 @@ public class FarmTest {
         }
         assertTrue(found, "Mixer not found");
 
+        found = false;
+
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
                 try {
@@ -43,6 +45,8 @@ public class FarmTest {
             }
         }
         assertTrue(found, "Truck not found");
+
+        found = false;
 
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {

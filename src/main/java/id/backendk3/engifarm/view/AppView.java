@@ -23,11 +23,11 @@ public class AppView extends JFrame implements Observer {
      */
     public static final int SIDEBAR_SIZE = 300;
 
-    private MapView mapPanel;
-    private TooltipView tooltipPanel;
-    private MoneyView moneyPanel;
-    private WaterView waterPanel;
-    private InventoryView inventoryPanel;
+    private final MapView mapPanel;
+    private final TooltipView tooltipPanel;
+    private final MoneyView moneyPanel;
+    private final WaterView waterPanel;
+    private final InventoryView inventoryPanel;
     private InputController ic;
 
     /**

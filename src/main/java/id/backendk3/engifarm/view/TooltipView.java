@@ -16,7 +16,7 @@ import java.util.Observer;
  */
 public class TooltipView extends JPanel implements Observer {
 
-    private JTextArea TooltipLabel;
+    private final JTextArea TooltipLabel;
 
     /**
      * Konstruktor kelas TooltipView

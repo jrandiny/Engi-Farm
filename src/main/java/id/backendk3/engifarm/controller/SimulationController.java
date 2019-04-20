@@ -6,10 +6,10 @@ import id.backendk3.engifarm.Farm;
 /**
  * Kelas riil SimulationController turunan Thread
  * 
- * <p>Kelas ini merepresentasikan penjalanan program secara otomatisasi menggunakan thread
+ * <player>Kelas ini merepresentasikan penjalanan program secara otomatisasi menggunakan thread
  */
 public class SimulationController extends Thread {
-    private Farm farm;
+    private final Farm farm;
 
     /**
      * Konstruktor kelas SimulationController

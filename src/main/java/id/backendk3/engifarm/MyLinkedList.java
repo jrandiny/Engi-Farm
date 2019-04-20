@@ -8,7 +8,7 @@ import java.util.LinkedList;
  * <p>Merupakan container generik berbentuk LinkedList
  */
 public class MyLinkedList<T> {
-    private LinkedList<T> list;
+    private final LinkedList<T> list;
 
     /**
      * Konstruktor tanpa parameter

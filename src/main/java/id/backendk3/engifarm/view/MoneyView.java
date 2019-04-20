@@ -16,7 +16,7 @@ import java.util.Observer;
  */
 public class MoneyView extends JPanel implements Observer {
 
-    private JLabel moneyLabel;
+    private final JLabel moneyLabel;
 
     /**
      * Konstruktor kelas MoneyView

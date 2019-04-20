@@ -22,7 +22,7 @@ public abstract class TimerObj {
     /**
      * Konstruktor Kelas TimerObj
      */
-    public TimerObj() {
+    protected TimerObj() {
         timerActive = false;
         timer = 0;
     }
@@ -63,7 +63,7 @@ public abstract class TimerObj {
      *
      * @param _timerActive kondisi timer
      */
-    public void setTimerActive(boolean _timerActive) {
+    protected void setTimerActive(boolean _timerActive) {
         timerActive = _timerActive;
     }
 
@@ -72,7 +72,7 @@ public abstract class TimerObj {
      *
      * @param _timer waktu timer
      */
-    public void setTimer(int _timer) {
+    protected void setTimer(int _timer) {
         timer = _timer;
     }
 }

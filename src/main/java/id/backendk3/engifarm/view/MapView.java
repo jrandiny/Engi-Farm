@@ -20,18 +20,18 @@ import java.util.Observer;
  * <p>Kelas ini merepresentasikan data peta permainan yang akan ditampilkan ke layar
  */
 public class MapView extends JPanel implements Observer {
-    final int ANIMAL_PADDING = 5;
-    final int GRASS_PADDING = 15;
-    final int PLAYER_PADDING = 5;
+    private final int ANIMAL_PADDING = 5;
+    private final int GRASS_PADDING = 15;
+    private final int PLAYER_PADDING = 5;
 
-    private JPanel mainPanel;
-    private JPanel[][] tiles;
+    private final JPanel mainPanel;
+    private final JPanel[][] tiles;
     private JPanel oldPanel;
 
     private Player player;
 
-    ArrayList<ArrayList<Cell>> mapGrid;
-    ArrayList<FarmAnimal> animal;
+    private ArrayList<ArrayList<Cell>> mapGrid;
+    private ArrayList<FarmAnimal> animal;
 
     /**
      * Konstruktor kelas MapView
@@ -73,8 +73,7 @@ public class MapView extends JPanel implements Observer {
             animal = farm.getFarmAnimals();
 
         } else if (observable instanceof Player) {
-            Player p = (Player) observable;
-            player = p;
+            player = (Player) observable;
         }
 
         JPanel mapPanel = new JPanel();
@@ -102,8 +101,6 @@ public class MapView extends JPanel implements Observer {
                 } catch (IOException e) {
                     System.out.println("Missing assets");
                     e.printStackTrace();
-                } catch (NullPointerException e) {
-
                 }
 
 

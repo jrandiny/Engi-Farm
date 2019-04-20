@@ -75,7 +75,7 @@ public class Player extends Observable implements Sprite {
         this.posY = posY;
         this.direction = direction;
         itemCount = 0;
-        bag = new HashMap<Product, Integer>();
+        bag = new HashMap<>();
     }
 
     /**

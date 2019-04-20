@@ -15,15 +15,15 @@ import java.util.Observer;
  */
 public class InventoryView extends JScrollPane implements Observer {
 
-    private JList<String> inventoryList;
-    private DefaultListModel<String> listModel;
+    private final JList<String> inventoryList;
+    private final DefaultListModel<String> listModel;
 
     /**
      * Konstruktor kelas InventoryView
      */
     public InventoryView() {
         listModel = new DefaultListModel<>();
-        inventoryList = new JList<String>(listModel);
+        inventoryList = new JList<>(listModel);
 
         this.setViewportView(inventoryList);
     }

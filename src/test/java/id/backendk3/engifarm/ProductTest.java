@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ProductTest {
+class ProductTest {
     @Test
-    public void testConstructor() {
+    void testConstructor() {
         ChickenEgg a = new ChickenEgg();
         CowMeat b = new CowMeat();
         CowMilk c = new CowMilk();
@@ -39,7 +39,7 @@ public class ProductTest {
     }
 
     @Test
-    public void testgetHarga() {
+    void testgetHarga() {
         ChickenEgg a = new ChickenEgg();
         CowMeat b = new CowMeat();
         CowMilk c = new CowMilk();
@@ -66,7 +66,7 @@ public class ProductTest {
     }
 
     @Test
-    public void testRender() {
+    void testRender() {
         ChickenEgg a = new ChickenEgg();
         CowMeat b = new CowMeat();
         CowMilk c = new CowMilk();
@@ -93,7 +93,7 @@ public class ProductTest {
     }
 
     @Test
-    public void testEquals() {
+    void testEquals() {
         ChickenEgg a = new ChickenEgg();
         CowMeat b = new CowMeat();
         CowMilk c = new CowMilk();
@@ -106,16 +106,16 @@ public class ProductTest {
         EggBenedict j = new EggBenedict();
         Meatza k = new Meatza();
 
-        assertTrue(a.equals(new ChickenEgg()), "Equals on ChickenEggType Failed");
-        assertTrue(b.equals(new CowMeat()), "Equals on CowMeatType Faisled");
-        assertTrue(c.equals(new CowMilk()), "Equals on CowMilkType Failed");
-        assertTrue(d.equals(new DuckEgg()), "Equals on DuckEggType Failed");
-        assertTrue(e.equals(new GoatMeat()), "Equals on GoatMeatType Failed");
-        assertTrue(f.equals(new GoatMilk()), "Equals on GoatMilkType Failed");
-        assertTrue(g.equals(new HorseMeat()), "Equals on HorseMeatType Failed");
-        assertTrue(h.equals(new RabbitMeat()), "Equals on RabbitMeatType Failed");
-        assertTrue(i.equals(new BeefRolade()), "Equals on BeefRoladeType Failed");
-        assertTrue(j.equals(new EggBenedict()), "Equals on EggBenedictType Failed");
-        assertTrue(k.equals(new Meatza()), "Equals on MeatzaType Failed");
+        assertEquals(a, new ChickenEgg(), "Equals on ChickenEggType Failed");
+        assertEquals(b, new CowMeat(), "Equals on CowMeatType Faisled");
+        assertEquals(c, new CowMilk(), "Equals on CowMilkType Failed");
+        assertEquals(d, new DuckEgg(), "Equals on DuckEggType Failed");
+        assertEquals(e, new GoatMeat(), "Equals on GoatMeatType Failed");
+        assertEquals(f, new GoatMilk(), "Equals on GoatMilkType Failed");
+        assertEquals(g, new HorseMeat(), "Equals on HorseMeatType Failed");
+        assertEquals(h, new RabbitMeat(), "Equals on RabbitMeatType Failed");
+        assertEquals(i, new BeefRolade(), "Equals on BeefRoladeType Failed");
+        assertEquals(j, new EggBenedict(), "Equals on EggBenedictType Failed");
+        assertEquals(k, new Meatza(), "Equals on MeatzaType Failed");
     }
 }

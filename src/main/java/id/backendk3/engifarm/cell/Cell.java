@@ -48,15 +48,15 @@ public abstract class Cell extends TimerObj implements Comparable<Cell>, Sprite 
     /**
      * Lokasi X
      */
-    protected final int X;
+    private final int X;
     /**
      * Lokasi Y
      */
-    protected final int Y;
+    private final int Y;
     /**
      * Tipe cell
      */
-    protected final CellType TYPE;
+    private final CellType TYPE;
     /**
      * Apakah cell terisi
      *
@@ -73,7 +73,7 @@ public abstract class Cell extends TimerObj implements Comparable<Cell>, Sprite 
      * @param _y    Lokasi Y
      * @param _type Tipe cell
      */
-    public Cell(int _x, int _y, CellType _type) {
+    protected Cell(int _x, int _y, CellType _type) {
         X = _x;
         Y = _y;
         TYPE = _type;

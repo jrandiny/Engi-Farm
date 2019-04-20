@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class FarmAnimalTest {
+class FarmAnimalTest {
     @Test
-    public void testTalk() {
+    void testTalk() {
         Chicken ayam = new Chicken(0, 0);
         Duck bebek = new Duck(0, 0);
         Horse kuda = new Horse(0, 0);
@@ -25,7 +25,7 @@ public class FarmAnimalTest {
     }
 
     @Test
-    public void testProduct() {
+    void testProduct() {
         Chicken ayam = new Chicken(0, 0);
         Duck bebek = new Duck(0, 0);
         Horse kuda = new Horse(0, 0);
@@ -45,7 +45,7 @@ public class FarmAnimalTest {
     }
 
     @Test
-    public void testLocation() {
+    void testLocation() {
         Chicken ayam = new Chicken(1, 2);
         Duck bebek = new Duck(3, 4);
         Horse kuda = new Horse(5, 6);

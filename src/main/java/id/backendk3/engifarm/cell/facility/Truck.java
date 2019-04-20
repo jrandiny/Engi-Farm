@@ -36,8 +36,7 @@ public class Truck extends Facility {
      * @throws IOException jika gambar tidak tersedia atau tidak dapat dibuka
      */
     public Image getSprite() throws IOException {
-        Image image = ImageIO.read(getClass().getClassLoader().getResource("sprites/facility/truck.png"));
-        return image;
+        return ImageIO.read(getClass().getClassLoader().getResource("sprites/facility/truck.png"));
     }
 
     /**

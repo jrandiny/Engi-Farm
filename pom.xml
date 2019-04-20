@@ -65,7 +65,6 @@
             <archive>
               <manifest>
                 <addClasspath>true</addClasspath>
-                <classpathPrefix></classpathPrefix>
                 <mainClass>id.backendk3.engifarm.App</mainClass>
               </manifest>
             </archive>
@@ -90,9 +89,6 @@
                     <artifactId>uml-java-doclet</artifactId>
                     <version>1.0.0</version>
                 </docletArtifact>
-                <!-- -linetype polyline / spline / ortho (default) -->
-                <!-- -dependencies public (default) / protected / package / private -->
-                <additionalparam></additionalparam>
                 <useStandardDocletOptions>true</useStandardDocletOptions>
             </configuration>
         </plugin>
@@ -113,7 +109,6 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <classpathPrefix></classpathPrefix>
               <mainClass>id.backendk3.engifarm.App</mainClass>
             </manifest>
           </archive>

@@ -22,7 +22,7 @@ public abstract class Facility extends Cell {
      *
      * <p>Akan bernilai true jika bisa digunakan
      */
-    protected boolean usable;
+    boolean usable;
 
     /**
      * Konstuktor kelas facility
@@ -44,5 +44,13 @@ public abstract class Facility extends Cell {
      */
     public boolean isUsable() {
         return usable;
+    }
+
+    /**
+     * Default callback for TimerObj
+     */
+    @Override
+    protected void callback() {
+
     }
 }

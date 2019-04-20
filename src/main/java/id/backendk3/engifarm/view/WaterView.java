@@ -16,7 +16,7 @@ import java.util.Observer;
  */
 public class WaterView extends JPanel implements Observer {
 
-    private JLabel waterLabel;
+    private final JLabel waterLabel;
 
     /**
      * Konstruktor Kelas WaterView

@@ -10,15 +10,13 @@ import java.util.Observable;
  * @author backendk3
  */
 public class Tooltip extends Observable {
-    private String Msg;
-    private boolean exit;
+    private String msg;
 
     /**
      * Konstruktor kelas Tooltip
      */
     public Tooltip() {
-        Msg = "";
-        exit = false;
+        msg = "";
     }
 
     /**
@@ -27,15 +25,7 @@ public class Tooltip extends Observable {
      * @return isi pesan yang akan dituliskan ke layar
      */
     public String getMsg() {
-        return Msg;
-    }
-
-    /**
-     * Method yang mengembalikan kondisi yang menyatakan permainan sedang berjalan
-     * @return True jika menyatakan kondisi permainan akan keluar
-     */
-    public boolean getExit() {
-        return exit;
+        return msg;
     }
 
     /**
@@ -44,17 +34,8 @@ public class Tooltip extends Observable {
      * @param msg isi pesan yang akan dituliskan ke layar
      */
     public void setMsg(String msg) {
-        this.Msg = msg;
+        this.msg = msg;
         setChanged();
         notifyObservers();
-    }
-
-    /**
-     * Method yang menetapkan kondisi yang menyatakan permainan sedang berjalan
-     * 
-     * @param flag kondisi yang menyatakan permainan sedang berjalan
-     */
-    public void setExit(boolean flag) {
-        this.exit = flag;
     }
 }

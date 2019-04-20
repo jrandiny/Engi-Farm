@@ -22,10 +22,10 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PlayerTest {
+class PlayerTest {
 
     @Test
-    public void testConstructor() {
+    void testConstructor() {
         Player p = new Player(10, 5, 0, 0, MoveType.Up);
         assertEquals(10, p.getWater(), "Wrong water amount");
         assertEquals(5, p.getMoney(), "Wrong money count");
@@ -34,7 +34,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void testMove() {
+    void testMove() {
 
         Farm map = new Farm(8, 8);
 
@@ -82,14 +82,14 @@ public class PlayerTest {
     }
 
     @Test
-    public void testTalk() {
+    void testTalk() {
         Player p = new Player(0, 0, 0, 0, MoveType.Up);
         Chicken chick = new Chicken(0, 0);
         assertEquals("Cook-a-Doodle-Doo!", p.talk(chick), "Wrong talk prosedure");
     }
 
     @Test
-    public void testAddBag() {
+    void testAddBag() {
         Player p = new Player(0, 0, 0, 0, MoveType.Up);
         int count = 0;
 
@@ -105,7 +105,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void testMaxBagItem() {
+    void testMaxBagItem() {
         Player p = new Player(0, 0, 0, 0, MoveType.Up);
         int count = 0;
 
@@ -126,7 +126,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void testBagItemCheck() {
+    void testBagItemCheck() {
         Player p = new Player(0, 0, 0, 0, MoveType.Up);
         int count = 0;
         for (int i = 0; i < 3; i++) {
@@ -157,7 +157,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void testInteractAnimal() {
+    void testInteractAnimal() {
         Player p = new Player(0, 0, 0, 0, MoveType.Up);
         Chicken chick = new Chicken(0, 0);
         Cow tank = new Cow(0, 1, Cell.CellType.GrassLandType);
@@ -186,7 +186,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void testInteractWell() {
+    void testInteractWell() {
         Player p = new Player(20, 0, 0, 0, MoveType.Up);
         Well w = new Well(0, 1);
 
@@ -196,7 +196,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void testInteractTruck() {
+    void testInteractTruck() {
         Player p = new Player(0, 0, 0, 0, MoveType.Up);
         Truck t = new Truck(0, 1);
         Truck t2 = new Truck(1, 0);
@@ -216,7 +216,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void testKill() {
+    void testKill() {
         Player p = new Player(0, 0, 0, 0, MoveType.Up);
         Cow desk = new Cow(0, 1, Cell.CellType.GrassLandType);
         Cow top = new Cow(0, 1, Cell.CellType.BarnType);
@@ -232,7 +232,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void testGrow() {
+    void testGrow() {
         Player p = new Player(10, 0, 0, 0, MoveType.Up);
         Land land = new Coop(2, 0);
 
@@ -243,7 +243,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void testMix() {
+    void testMix() {
         Player p = new Player(0, 0, 0, 0, MoveType.Up);
         Truck t = new Truck(0, 1);
         Cow tank = new Cow(0, 1, Cell.CellType.BarnType);
