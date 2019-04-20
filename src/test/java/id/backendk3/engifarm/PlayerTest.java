@@ -35,8 +35,18 @@ public class PlayerTest {
 
     @Test
     public void testMove() {
-        Player p = new Player(0, 0, 5, 5, MoveType.Up);
-        Farm map = new Farm(10, 10);
+
+        Farm map = new Farm(8, 8);
+
+        ArrayList<ArrayList<Cell>> temp = map.getMap();
+        int initX, initY;
+        do {
+            initX = (int) (Math.random() * temp.get(0).size());
+            initY = (int) (Math.random() * temp.size());
+        } while (temp.get(initY).get(initX).isOccupied());
+        ((Land) (temp.get(initY).get(initX))).occupy();
+        Player p = new Player(0, 0, initX, initY, Farm.MoveType.Up);
+
         Cell[] surr = map.getSurrounding(p.getX(), p.getY());
 
         int posX = p.getX();
@@ -47,7 +57,11 @@ public class PlayerTest {
         ArrayList<MoveType> move = new ArrayList<>(Arrays.asList(
                 MoveType.Up, MoveType.Right, MoveType.Down, MoveType.Left));
         Collections.shuffle(move);
-        MoveType arah = move.get(0);
+        int i = 0;
+        while(surr[move.get(i).getValue()]==null){
+            i++;
+        }
+        MoveType arah = move.get(i);
 
         if (surr[arah.getValue()].isOccupied()) {
             if (p.getDirection() == arah) {
