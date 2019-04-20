@@ -207,7 +207,8 @@ public abstract class FarmAnimal extends TimerObj implements Sprite {
      * Menyatakan hewan dalam kondisi lapar jika timer objek hewan dengan waktu kelaparan sudah habis
      * <p>Menyatakan hewan dalam kondisi mati jika timer objek hewan dengan waktu kematian sudah habis
      */
-    public void callback() {
+    @Override
+    protected void callback() {
         if (eatStatus) {
             setEatStatus(false);
         } else {

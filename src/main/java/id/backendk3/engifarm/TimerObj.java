@@ -15,17 +15,17 @@ public abstract class TimerObj {
     private boolean timerActive;
 
     /**
+     * Method abstrak callback yang merepresentasikan perintah jika timer objek habis
+     */
+    protected abstract void callback();
+
+    /**
      * Konstruktor Kelas TimerObj
      */
     public TimerObj() {
         timerActive = false;
         timer = 0;
     }
-
-    /**
-     * Method abstrak callback yang merepresentasikan perintah jika timer objek habis
-     */
-    public abstract void callback();
 
     /**
      * Prosedur yang dilakukan setiap satu satuan tick pada timer

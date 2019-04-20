@@ -70,7 +70,8 @@ public class Truck extends Facility {
      * <p>
      * Method yang dipanggil jika timer untuk objek truk sudah habis
      */
-    public void callback() {
+    @Override
+    protected void callback() {
         if (!usable) {
             usable = true;
             setTimerActive(false);
