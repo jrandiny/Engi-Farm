@@ -129,11 +129,4 @@ public abstract class Cell extends TimerObj implements Comparable<Cell>, Sprite 
             return 0;
         }
     }
-
-    /**
-     * Method overide callback yang berisi perintah jika waktu dari timer objek habis
-     */
-    public void callback() {
-
-    }
 }
