@@ -88,7 +88,7 @@ public abstract class Product {
      * @param _type  tipe produk
      * @param _harga harga produk
      */
-    protected Product(ProductType _type, int _harga) {
+    public Product(ProductType _type, int _harga) {
         HARGA = _harga;
         TYPE = _type;
     }
