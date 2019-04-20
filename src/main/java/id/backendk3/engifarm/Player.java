@@ -162,39 +162,14 @@ public class Player extends Observable implements Sprite {
      */
     public void move(Farm.MoveType arah, Cell[] surr) {
         boolean move = false;
-        if (!surr[arah.getValue()].isOccupied()) {
-            switch (arah) {
-                case Up:
-                    if (surr[Farm.MoveType.Up.getValue()] != null && !surr[Farm.MoveType.Up.getValue()].isOccupied()) {
-                        posY--;
-                        move = true;
-                        ((Land) surr[Farm.MoveType.Up.getValue()]).occupy();
-                    }
-                    break;
-                case Right:
-                    if (surr[Farm.MoveType.Right.getValue()] != null && !surr[Farm.MoveType.Right.getValue()].isOccupied()) {
-                        posX++;
-                        move = true;
-                        ((Land) surr[Farm.MoveType.Right.getValue()]).occupy();
-                    }
-                    break;
-                case Down:
-                    if (surr[Farm.MoveType.Down.getValue()] != null && !surr[Farm.MoveType.Down.getValue()].isOccupied()) {
-                        posY++;
-                        move = true;
-                        ((Land) surr[Farm.MoveType.Down.getValue()]).occupy();
-                    }
-                    break;
-                case Left:
-                    if (surr[Farm.MoveType.Left.getValue()] != null && !surr[Farm.MoveType.Left.getValue()].isOccupied()) {
-                        posX--;
-                        move = true;
-                        ((Land) surr[Farm.MoveType.Left.getValue()]).occupy();
-                    }
-                    break;
-                default:
-                    break;
-            }
+        int[] dirX = {0, 1, 0, -1};
+        int[] dirY = {-1, 0, 1, 0};
+
+        if (surr[arah.getValue()]!= null && !surr[arah.getValue()].isOccupied()) {
+            posX += dirX[arah.getValue()];
+            posY += dirY[arah.getValue()];
+            move = true;
+            ((Land) surr[arah.getValue()]).occupy();
         }
 
         if (!move) {
