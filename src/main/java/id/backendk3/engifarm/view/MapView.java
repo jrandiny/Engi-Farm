@@ -97,11 +97,14 @@ public class MapView extends JPanel implements Observer {
                 JLabel isi = new JLabel();
 
                 try {
-                    isi = new JLabel(new ImageIcon(mapGrid.get(j).get(i).getSprite().getScaledInstance(size - GRASS_PADDING, size - GRASS_PADDING, Image.SCALE_FAST)));
+                    Image sprite = mapGrid.get(j).get(i).getSprite();
+                    if (sprite != null) {
+                        isi = new JLabel(new ImageIcon(sprite.getScaledInstance(size - GRASS_PADDING, size - GRASS_PADDING, Image.SCALE_FAST)));
+                    }
                 } catch (IOException e) {
                     System.out.println("Missing assets");
                     e.printStackTrace();
-                }
+                } 
 
 
                 jp.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
