@@ -4,7 +4,7 @@ A simple time management game
 
 ## Compiling
 
-[![Build Status](https://travis-ci.com/jrandiny/Engi-Farm-Java.svg?token=yyqA2Pyz5FdpgV7um6SS&branch=master)](https://travis-ci.com/jrandiny/Engi-Farm-Java)
+[![Build Status](https://travis-ci.com/jrandiny/engi-farm.svg?branch=master)](https://travis-ci.com/jrandiny/engi-farm)
 
 This project uses Maven and Java 8
 ```bash
